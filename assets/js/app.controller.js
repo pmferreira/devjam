@@ -3,9 +3,9 @@
 
   angular.module(document.app.name).controller('appController', appController);
 
-  appController.$inject = [];
+  appController.$inject = ['$scope', '$location'];
 
-  function appController() {
+  function appController($scope, $location) {
     var vm = this;
     
     /***/
@@ -15,6 +15,10 @@
     })();
 
     /***/
+    
+    $scope.go = function (path) {
+      $location.path(path);
+    };
     
   }
   

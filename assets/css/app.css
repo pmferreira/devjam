@@ -18,7 +18,8 @@ main {
 }
 
 .footer {
-  padding:40px 0;
+  padding-top:20px;
+  padding-bottom:20px;
 }
 
 .footer.footer-condensed .sn-meta-navigation {
@@ -28,20 +29,37 @@ main {
 .footer .sn-meta-navigation {
   margin-top:0;
 }
-.footer .sn-meta-navigation .col-xs-12 {
-  padding:0;
-}
 
 .navbar.navbar-default.navbar-fixed-top {
   height:80px;
 }
-
-body.modal-open {
-  padding-right:0 !important;
-}
-
 /**** End Of: Newton Fixes ****/
 
+.thumbnail-link {
+	cursor:pointer;
+	transition:all 0.5s;
+}
+.thumbnail-link:hover {
+	box-shadow:2px 2px 8px #888;
+}
+
+.thumbnail-img-container {
+	height:200px;
+	padding:25px 25px 0;
+}
+.thumbnail-img {
+	height:100%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: contain;
+}
+.thumbnail-repair .thumbnail-img {
+	background-image: url('../images/icoRepair.png');
+}
+
+.thumbnail-sales .thumbnail-img {
+  background-image: url('../images/icoSales.png');
+}
 
 
 

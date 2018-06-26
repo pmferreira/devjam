@@ -6,10 +6,14 @@
     module: undefined
   };
 
-  document.app.module = angular.module(document.app.name, []);
+  document.app.module = angular.module(document.app.name, ['ngRoute']);
 
-  document.app.module.config(function() {
-
+  document.app.module.config(function($routeProvider) {
+    $routeProvider.when("/", {
+      templateUrl: "assets/pages/home.html"
+    }).when("/start-repair", {
+      templateUrl: "assets/pages/orders/repair.html"
+    });
   });
 
 })();
