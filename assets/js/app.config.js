@@ -12,7 +12,9 @@
     $routeProvider.when("/", {
       templateUrl: "assets/pages/home.html"
     }).when("/start-repair", {
-      templateUrl: "assets/pages/orders/repair.html"
+      templateUrl: "assets/pages/orders/repair.html",
+      controller: 'repairController',
+      controllerAs: 'repairCtrl',
     });
   });
 

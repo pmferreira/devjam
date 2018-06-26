@@ -9,7 +9,6 @@ main {
 	display:flex;
 	flex-flow:column;
   flex:1 0 auto;
-  margin-top:80px;
   position:relative;
 }
 
@@ -35,6 +34,12 @@ main {
 }
 /**** End Of: Newton Fixes ****/
 
+.thumbnail.disabled {
+	cursor:default;
+	opacity:0.4;
+	box-shadow:none !important;
+}
+
 .thumbnail-link {
 	cursor:pointer;
 	transition:all 0.5s;
@@ -44,8 +49,9 @@ main {
 }
 
 .thumbnail-img-container {
-	height:200px;
+	height:180px;
 	padding:25px 25px 0;
+	position:relative;
 }
 .thumbnail-img {
 	height:100%;
@@ -59,6 +65,28 @@ main {
 
 .thumbnail-sales .thumbnail-img {
   background-image: url('../images/icoSales.png');
+}
+
+.thumbnail-qr .thumbnail-img {
+  background-image: url('../images/icoQr.png');
+}
+
+.thumbnail-manual .thumbnail-img {
+  background-image: url('../images/icoManual.png');
+}
+
+.thumbnail-loc .thumbnail-img {
+  background-image: url('../images/icoLoc.png');
+}
+.thumbnail-loc .thumbnail-img-container h2 {
+	position:absolute;
+	right:-5px;
+	top:-5px;
+	transition:all 0.5s;
+	margin:0;
+}
+.thumbnail-loc:hover .thumbnail-img-container .label {
+	box-shadow:0px 0px 6px #888;
 }
 
 
