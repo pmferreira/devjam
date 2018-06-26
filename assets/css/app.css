@@ -1,0 +1,48 @@
+/**** Newton Fixes ****/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+html,body {
+  height:100%;
+}
+main {
+	display:flex;
+	flex-flow:column;
+  flex:1 0 auto;
+  margin-top:80px;
+  position:relative;
+}
+
+.footer ul > li > a::before, .breadcrumb > .dropdown > .dropdown-toggle::after {
+  content: '\EA0C';
+}
+
+.footer {
+  padding:40px 0;
+}
+
+.footer.footer-condensed .sn-meta-navigation {
+  margin-top:0;
+}
+
+.footer .sn-meta-navigation {
+  margin-top:0;
+}
+.footer .sn-meta-navigation .col-xs-12 {
+  padding:0;
+}
+
+.navbar.navbar-default.navbar-fixed-top {
+  height:80px;
+}
+
+body.modal-open {
+  padding-right:0 !important;
+}
+
+/**** End Of: Newton Fixes ****/
+
+
+
+
+
