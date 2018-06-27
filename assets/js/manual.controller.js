@@ -51,6 +51,7 @@
         // }
 
         $scope.descriptionRequirements = text;
+        $scope.$apply();
       });
 
     }

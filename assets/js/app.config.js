@@ -10,7 +10,9 @@
 
   document.app.module.config(function($routeProvider) {
     $routeProvider.when("/", {
-      templateUrl: "assets/pages/home.html"
+      templateUrl: "assets/pages/home.html",
+      controller: 'homeController',
+      controllerAs: 'homeCtrl'
     }).when("/start-repair", {
       templateUrl: "assets/pages/orders/repair.html",
       controller: 'repairController',
