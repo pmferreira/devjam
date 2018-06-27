@@ -1,19 +1,88 @@
 
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  
+  <meta charset="UTF-8">
+  <title>HTML5 Media Device Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    video, img {
+      max-width:100%;
+    }
+  </style>
 </head>
+<body> 
+Click the image to take a snpashot and execute OCR
+<input type="button" value="foto" onclick="takeSnapshot()">
+<video autoplay></video>
 
-<body>
 
-<div id="test"></div>
-<canvas id="canvas" ></canvas>
+
+</body>
 <script src="gocr.js"></script>
+<canvas id="canvas" ></canvas>
+<script>
+  (function() {
+    'use strict';
+    var video = document.querySelector('video')
+      , canvas;
+
+    /**
+     *  generates a still frame image from the stream in the <video>
+     *  appends the image to the <body>
+     */
+    function takeSnapshot() {
+      var img = document.querySelector('img') || document.createElement('img');
+      var context;
+      var width = video.offsetWidth
+        , height = video.offsetHeight;
+
+      canvas = canvas || document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+
+      context = canvas.getContext('2d');
+      context.drawImage(video, 0, 0, width, height);
+
+      img.src = canvas.toDataURL('image/png');
+	  img.id = "img1";
+	  img.crossOrigin = "Anonymous";
+	  img.onload = function () {
+			//draw background image
+			//context.drawImage(img, 0, 0);
+			//draw a box over the top
+			//context.fillStyle = "rgba(200, 0, 0, 0.5)";
+			//context.fillRect(0, 0, 500, 500);
+			var string = GOCR(context);
+			alert(string);
+
+		};
+      document.body.appendChild(img);
+    }
+
+    // use MediaDevices API
+    // docs: https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
+    if (navigator.mediaDevices) {
+      // access the web cam
+      navigator.mediaDevices.getUserMedia({video: true})
+      // permission granted:
+        .then(function(stream) {
+          video.src = window.URL.createObjectURL(stream);
+          video.addEventListener('click', takeSnapshot);
+        })
+        // permission denied:
+        .catch(function(error) {
+          document.body.textContent = 'Could not access the camera. Error: ' + error.name;
+        });
+    }
+  })();
+
+</script>
+
+
 <script>
 
-
+function ocr() {
  var ctx = document.getElementById('canvas');
     if (ctx.getContext) {
 
@@ -37,7 +106,7 @@
 
         img1.src = 'img1.jpg';
     }
-
+}
 
 </script>
 </body>

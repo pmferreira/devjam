@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+</head>
+ <style>
+    video, img {
+      max-width:100%;
+    }
+  </style>
+<body>
+
+<div id="test"></div>
+<canvas id="canvas"></canvas>
+<script src="gocr.js"></script>
+<script>
+
+
+ var ctx = document.getElementById('canvas');
+    if (ctx.getContext) {
+
+        ctx = ctx.getContext('2d');
+
+        //Loading of the home test image - img1
+        var img1 = new Image();
+
+        //drawing of the test image - img1
+		img1.crossOrigin = "Anonymous";
+        img1.onload = function () {
+            //draw background image
+            ctx.drawImage(img1, 0, 0);
+            //draw a box over the top
+            ctx.fillStyle = "rgba(200, 0, 0, 0.5)";
+            ctx.fillRect(0, 0, 500, 500);
+			var string = GOCR(ctx);
+			alert(string);
+
+        };
+
+        img1.src = 'img1.jpg';
+    }
+
+
+</script>
+</body>
+</html>
