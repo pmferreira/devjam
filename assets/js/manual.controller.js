@@ -74,13 +74,15 @@
       ]);
 
       vm.artyom.redirectRecognizedTextOutput(function (text, isFinal) {
-        var span = document.getElementById('output');
+        var span = angular.element('#description');
 
-        if (isFinal) {
-          span.innerHTML = '';
-        } else {
-          span.innerHTML = text;
-        }
+        // if (isFinal) {
+        //   span.innerHTML = '';
+        // } else {
+        //   span.innerHTML = text;
+        // }
+
+        span.innerHTML = text;
       });
 
     }
