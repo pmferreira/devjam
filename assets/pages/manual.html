@@ -117,7 +117,7 @@
               <!-- textarea -->
               <md-input-container class="md-block">
                 <label> Specific Requirements… </label>
-                <input md-maxlength="30" required md-no-asterisk name="description" id="description" ng-model="project.description">
+                <input md-maxlength="30" required md-no-asterisk name="description" id="description" ng-model="project.description" value={{vm.description}}>
                 <div ng-messages="manualRequestForm.description.$error">
                   <div ng-message="required">This is required.</div>
                   <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
@@ -125,10 +125,10 @@
               </md-input-container>
   
               <md-button ng-switch="vm.isMicrophoneOpen" ng-click="vm.isMicrophoneOpen=!vm.isMicrophoneOpen" ng-class="md-icon-button logo">
-                <md-icon ng-switch-when="false" class="logo-image" ng-click="startArtyom()">
+                <md-icon ng-show="!vm.isMicrophoneOpen" class="logo-image" ng-click="startArtyom()">
                   <img class="logo-image" src="assets/images/baseline-mic_off-24px.svg">
                 </md-icon>
-                <md-icon ng-switch-when="true" class="logo-image" ng-click="stopArtyom()">
+                <md-icon ng-show="vm.isMicrophoneOpen" class="logo-image" ng-click="stopArtyom()">
                   <img class="logo-image" src="assets/images/baseline-mic-24px.png">
                 </md-icon>
               </md-button>
