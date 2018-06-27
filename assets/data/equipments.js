@@ -4,7 +4,7 @@ var equipments = [
     'name': 'Equipment name',
     'description':'Equipment description',
     'type':'AB123',
-    'under_repair':false,
+    'under_repair':true,
     'location': {
       'lat':'37.2512',
       'lng':'-8.53213'

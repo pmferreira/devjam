@@ -1,0 +1,60 @@
+<div class="container single">
+  <div class="row">
+    <div class="col-xs-12">
+      <ol class="breadcrumb">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="newton-home"></span></a>
+        </li>
+        <li class="dropdown">
+          <a href="#!/start-repair" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Repair</a>
+        </li>
+        <li class="active">Read QR Code</li>
+      </ol>
+    </div>
+  </div>
+</div>
+<section class="ng-cloak">
+  <div class="container">
+    <div class="row" data-ng-show="!qrcodeCtrl.equipment">
+      <div class="col-xs-12 text-center">
+        <video id="preview" style="max-width:100%"></video>
+        <div class="alert alert-info" data-ng-show="!!qrcodeCtrl.equipmentError">
+         <a class="close" data-ng-click="qrcodeCtrl.equipmentError = null" style="cursor:pointer"></a>
+         <span class="glyphicon-siemens glyphicon-siemens-news-A"></span>&nbsp;&nbsp;{{qrcodeCtrl.equipmentError}}
+        </div>
+      </div>
+    </div>
+    <div class="row" data-ng-show="!!qrcodeCtrl.equipment">
+      <div class="col-xs-12">
+        <div class="equipment container" style="background:#f0f0f0;box-shadow:0px 0px 10px #aaa">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <div style="width:calc(100% + 30px);margin-left:-15px;height:150px;background:url('{{qrcodeCtrl.equipment.picture}}') 50% 50% no-repeat;background-size: cover;"></div>
+            </div>
+            <div class="col-xs-12 col-sm-9">
+              <h2>{{qrcodeCtrl.equipment.name}}</h2>
+              <p>{{qrcodeCtrl.equipment.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" data-ng-show="!!qrcodeCtrl.equipment" style="margin-top:20px;">
+      <div class="col-xs-12" data-ng-show="!!qrcodeCtrl.equipment.under_repair">
+        <div class="alert alert-warning">
+         <span class="glyphicon-siemens glyphicon-siemens-news-A"></span>&nbsp;&nbsp;This equipment is already under maintenance!
+        </div>
+      </div>
+      <div class="col-xs-4 col-md-3 col-lg-2">
+        <button class="btn btn-default" style="width:100%;padding:10px 12px"" data-ng-click="qrcodeCtrl.equipment = null">
+          <span class="newton-arrow-left-small"></span>&nbsp;&nbsp;Back
+        </button>
+      </div>
+      <div class="col-xs-8 col-md-4 col-md-offset-5 col-lg-2 col-lg-offset-8" data-ng-show="!qrcodeCtrl.equipment.under_repair">
+        <a class="btn btn-primary" style="width:100%;padding:10px 12px" href="#!/equipment">
+          Select&nbsp;&nbsp;<span class="newton-arrow-right-small"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

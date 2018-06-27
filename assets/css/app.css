@@ -96,3 +96,14 @@ ol.breadcrumb {
 }
 
 
+@media (max-width: 768px) {
+  .container.single {
+    width: calc(100% - 30px);
+    padding-left:15px;
+    padding-right:15px;
+  }
+}
+
+[class*="col-"] + [class*="col-"] > .btn {
+	margin-top:0;
+}

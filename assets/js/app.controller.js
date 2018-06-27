@@ -8,6 +8,8 @@
   function appController($scope, $location, $filter) {
     var vm = this;
     
+    vm.selectedEquipment = null;
+    
     vm.fn = {
       searchEquipment : searchEquipment
     };

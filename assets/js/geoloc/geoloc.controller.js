@@ -1,11 +1,11 @@
 (function () {
   'use strict';
 
-  angular.module(document.app.name).controller('repairController', repairController);
+  angular.module(document.app.name).controller('geolocController', geolocController);
 
-  repairController.$inject = ['$scope'];
+  geolocController.$inject = ['$scope'];
 
-  function repairController($scope) {
+  function geolocController($scope) {
     var vm = this;
     
     vm.fn = {
