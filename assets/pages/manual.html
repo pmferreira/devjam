@@ -121,14 +121,16 @@
                   <input md-no-asterisk name="description" id="description" ng-model="project.description" ng-value="descriptionRequirements" input-clear="black">
                 </md-input-container>
                 <!-- microphone button -->
-                <md-button flex="10" ng-switch="vm.isMicrophoneOpen" ng-click="vm.isMicrophoneOpen=!vm.isMicrophoneOpen" ng-class="md-icon-button">
-                  <md-icon ng-show="!vm.isMicrophoneOpen" class="microphone-image" ng-click="startArtyom()">
-                    <img class="microphone-image" src="assets/images/baseline-mic_off-24px.svg">
-                  </md-icon>
-                  <md-icon ng-show="vm.isMicrophoneOpen" class="microphone-image" ng-click="stopArtyom()">
-                    <img class="microphone-image" src="assets/images/baseline-mic-24px.svg">
-                  </md-icon>
-                </md-button>
+                <div class="button-adjuster">
+                  <md-button flex="10" ng-switch="vm.isMicrophoneOpen" ng-click="vm.isMicrophoneOpen=!vm.isMicrophoneOpen" ng-class="md-icon-button">
+                    <md-icon ng-show="!vm.isMicrophoneOpen" class="microphone-image" ng-click="startArtyom()">
+                      <img class="microphone-image" src="assets/images/baseline-mic_off-24px.svg">
+                    </md-icon>
+                    <md-icon ng-show="vm.isMicrophoneOpen" class="microphone-image" ng-click="stopArtyom()">
+                      <img class="microphone-image" src="assets/images/baseline-mic-24px.svg">
+                    </md-icon>
+                  </md-button>
+                </div>
               </div>
   
               <!-- Submit button -->
