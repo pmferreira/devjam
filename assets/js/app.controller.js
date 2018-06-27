@@ -3,10 +3,14 @@
 
   angular.module(document.app.name).controller('appController', appController);
 
-  appController.$inject = ['$scope', '$location'];
+  appController.$inject = ['$scope', '$location', '$filter'];
 
-  function appController($scope, $location) {
+  function appController($scope, $location, $filter) {
     var vm = this;
+    
+    vm.fn = {
+      searchEquipment : searchEquipment
+    };
     
     /***/
 
@@ -19,6 +23,11 @@
       $location.path(path);
     };
     
+    function searchEquipment(id) {
+      return $filter('filter')(equipments, function(eq) {
+        return eq.id === id; 
+      })[0];
+    }
   }
   
 })();

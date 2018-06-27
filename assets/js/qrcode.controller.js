@@ -8,7 +8,8 @@
   function qrcodeController($scope) {
     var vm = this;
     
-    vm.qrCodeOn = false;
+    vm.scannedCode = null;
+    vm.equipment = null;
     
     /***/
 
@@ -18,12 +19,19 @@
 
     /***/
     
-    function startQrCodeReader() {
-      vm.qrCodeOn = true;
-      
+    function startQrCodeReader() {      
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       scanner.addListener('scan', function (content) {
-        console.log(content);
+        vm.scannedCode = content;
+        vm.equipment = $scope.$parent.app.fn.searchEquipment(content);
+        
+        console.log([content,vm.equipment])
+        
+        if(!vm.equipment) {
+          console.log("Equipment " + content + " not found");
+        }
+        
+        $scope.$apply();
       });
       Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {
