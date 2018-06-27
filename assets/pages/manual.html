@@ -1,0 +1,19 @@
+<section class="ng-cloak" >
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>AGT Service Request - Repair Order</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <input type="button" ng-click="startArtyom()" value="start voice command"></input>
+        <input type="button" ng-click="stopArtyom()" value="stop listening"></input>
+        <span id="output"></span>
+        <button id="previous" ng-click="hideText()">Previous</button>
+        <button id="next" ng-click="showText()">Next</button>
+        <span id="textToShow" style="display: none; color:red; border: 2px solid black;">Olá apareci porque disseste "Next"!</span>
+      </div>
+    </div>
+  </div>
+</section>
