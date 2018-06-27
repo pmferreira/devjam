@@ -85,14 +85,9 @@ ol.breadcrumb {
 }
 
 /**** Start of Manual ****/
-.md-button.logo {
-	height: 7rem;
-	width: 7rem;
-}
-
-.logo-image {
-	height: 100%;
-	width: 100%;
+.microphone-image {
+	height: 34px;
+	width: 34px;
 }
 
 

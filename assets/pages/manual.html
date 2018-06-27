@@ -114,24 +114,26 @@
                 </div>
               </md-input-container>
   
-              <!-- textarea -->
-              <md-input-container class="md-block">
-                <label> Specific Requirements… </label>
-                <input md-maxlength="30" required md-no-asterisk name="description" id="description" ng-model="project.description" ng-value="descriptionRequirements">
-                <div ng-messages="manualRequestForm.description.$error">
-                  <div ng-message="required">This is required.</div>
-                  <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
-                </div>
-              </md-input-container>
-  
-              <md-button ng-switch="vm.isMicrophoneOpen" ng-click="vm.isMicrophoneOpen=!vm.isMicrophoneOpen" ng-class="md-icon-button logo">
-                <md-icon ng-show="!vm.isMicrophoneOpen" class="logo-image" ng-click="startArtyom()">
-                  <img class="logo-image" src="assets/images/baseline-mic_off-24px.svg">
-                </md-icon>
-                <md-icon ng-show="vm.isMicrophoneOpen" class="logo-image" ng-click="stopArtyom()">
-                  <img class="logo-image" src="assets/images/baseline-mic-24px.svg">
-                </md-icon>
-              </md-button>
+              <div layout="row">
+                <!-- textarea -->
+                <md-input-container class="md-block" flex="80">
+                  <label> Specific Requirements… </label>
+                  <input md-maxlength="30" required md-no-asterisk name="description" id="description" ng-model="project.description" ng-value="descriptionRequirements">
+                  <div ng-messages="manualRequestForm.description.$error">
+                    <div ng-message="required">This is required.</div>
+                    <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+                  </div>
+                </md-input-container>
+                <!-- microphone button -->
+                <md-button flex="20" ng-switch="vm.isMicrophoneOpen" ng-click="vm.isMicrophoneOpen=!vm.isMicrophoneOpen" ng-class="md-icon-button">
+                  <md-icon ng-show="!vm.isMicrophoneOpen" class="microphone-image" ng-click="startArtyom()">
+                    <img class="microphone-image" src="assets/images/baseline-mic_off-24px.svg">
+                  </md-icon>
+                  <md-icon ng-show="vm.isMicrophoneOpen" class="microphone-image" ng-click="stopArtyom()">
+                    <img class="microphone-image" src="assets/images/baseline-mic-24px.svg">
+                  </md-icon>
+                </md-button>
+              </div>
   
               <!-- Submit button -->
               <div>
