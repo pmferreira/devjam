@@ -29,14 +29,14 @@
           indexes: ["hello", "hey"],
           action: function (i) {
             if (i == 0) {
-              vm.artyom.say("Hello! How are you?");
+              // vm.artyom.say("Hello! How are you?");
             }
           }
         },
         {
           indexes: ["goodbye"],
           action: function () {
-            vm.artyom.say("bye");
+            // vm.artyom.say("bye");
           }
         }
       ]);

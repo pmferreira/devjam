@@ -117,7 +117,7 @@
               <!-- textarea -->
               <md-input-container class="md-block">
                 <label> Specific Requirements… </label>
-                <input md-maxlength="30" required md-no-asterisk name="description" id="description" ng-model="project.description" value={{vm.description}}>
+                <input md-maxlength="30" required md-no-asterisk name="description" id="description" ng-model="project.description" ng-value={{vm.description}}>
                 <div ng-messages="manualRequestForm.description.$error">
                   <div ng-message="required">This is required.</div>
                   <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
