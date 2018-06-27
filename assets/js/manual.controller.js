@@ -10,7 +10,7 @@
 
     vm.manualRequest = false;
     vm.artyom = null;
-    vm.description = '';
+    $scope.descriptionRequirements = '';
 
     /***/
 
@@ -50,7 +50,7 @@
         //   span.innerHTML = text;
         // }
 
-        vm.description = text;
+        $scope.descriptionRequirements = text;
       });
 
     }
