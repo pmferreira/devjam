@@ -9,6 +9,7 @@
     var vm = this;
 
     vm.manualRequest = false;
+    vm.artyom = null;
 
     /***/
 
@@ -21,13 +22,13 @@
     function startManualRequest() {
       vm.manualRequest = true;
 
-      var artyom = new Artyom();
-      artyom.addCommands([{
+      vm.artyom = new Artyom();
+      vm.artyom.addCommands([{
           description: "Artyom can talk too, lets say something if we say hello",
           indexes: ["hello", "hey"],
           action: function (i) {
             if (i == 0) {
-              artyom.say("Hello! How are you?");
+              vm.artyom.say("Hello! How are you?");
             }
           }
         },
@@ -36,7 +37,7 @@
           indexes: ["coco"],
           action: function (i) {
             if (i == 0) {
-              artyom.say("coco! para ti?");
+              vm.artyom.say("coco! hello?");
             }
           }
         },
@@ -45,7 +46,7 @@
           indexes: ["next"],
           action: function (i) {
             if (i == 0) {
-              artyom.say("you are beautiful");
+              vm.artyom.say("you are beautiful");
 
               
               angular.element('#next').triggerHandler('click');
@@ -57,7 +58,7 @@
           indexes: ["previous"],
           action: function (i) {
             if (i == 0) {
-              artyom.say("you are ugly");
+              vm.artyom.say("you are ugly");
 
               angular.element('#previous').triggerHandler('click');
             }
@@ -66,26 +67,28 @@
         {
           indexes: ["goodbye"],
           action: function () {
-            artyom.say("i will miss you");
+            vm.artyom.say("i will miss you");
             alert("Now all is over.");
           }
         }
       ]);
 
-      artyom.redirectRecognizedTextOutput(function (text, isFinal) {
-        var span = document.getElementById('output');
+      vm.artyom.redirectRecognizedTextOutput(function (text, isFinal) {
+        var span = angular.element('#description');
 
-        if (isFinal) {
-          span.innerHTML = '';
-        } else {
-          span.innerHTML = text;
-        }
+        // if (isFinal) {
+        //   span.innerHTML = '';
+        // } else {
+        //   span.innerHTML = text;
+        // }
+
+        span.innerHTML = text;
       });
 
     }
 
     $scope.startArtyom = function() {
-      artyom.initialize({
+      vm.artyom.initialize({
         lang: "en-GB",
         continuous: false,
         debug: true,
@@ -94,7 +97,7 @@
     }
 
     $scope.stopArtyom = function() {
-      artyom.fatality();
+      vm.artyom.fatality();
     }
 
     $scope.showText = function() {

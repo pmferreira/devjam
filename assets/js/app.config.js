@@ -6,7 +6,7 @@
     module: undefined
   };
 
-  document.app.module = angular.module(document.app.name, ['ngRoute']);
+  document.app.module = angular.module(document.app.name, ['ngRoute', 'ngMaterial', 'ngMessages']);
 
   document.app.module.config(function($routeProvider) {
     $routeProvider.when("/", {

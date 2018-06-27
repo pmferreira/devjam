@@ -84,6 +84,15 @@ ol.breadcrumb {
 	box-shadow:0px 0px 6px #888;
 }
 
+/**** Start of Manual ****/
+.md-button.logo {
+	height: 7rem;
+	width: 7rem;
+}
 
+.logo-image {
+	height: 100%;
+	width: 100%;
+}
 
 

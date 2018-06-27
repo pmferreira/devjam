@@ -1,19 +1,145 @@
-<section class="ng-cloak" >
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <h2>AGT Service Request - Repair Order</h2>
+<section class="ng-cloak">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>AGT Service Request - Repair Order</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <!-- <div>
+            <input type="button" ng-click="startArtyom()" value="start voice command"></input>
+            <input type="button" ng-click="stopArtyom()" value="stop listening"></input>
+            <span id="output"></span>
+            <button id="previous" ng-click="hideText()">Previous</button>
+            <button id="next" ng-click="showText()">Next</button>
+            <span id="textToShow" style="display: none; color:red; border: 2px solid black;">Olá apareci porque disseste "Next"!</span>
+          </div> -->
+          <md-content layout-padding>
+            <form name="manualRequestForm">
+  
+              <!-- dropdown questions-->
+              <div layout="row">
+                <md-input-container flex="50">
+                  <label> SCA Number</label>
+                  <md-select name="scaNumber" ng-model="project.scaNumber" required>
+                    <md-option value="1">CFS18001</md-option>
+                    <md-option value="2">CFS18002</md-option>
+                  </md-select>
+                </md-input-container>
+                <md-input-container flex="50">
+                  <label> Rev Number</label>
+                  <md-select name="revNumber" ng-model="project.revNumber" required>
+                    <md-option value="1">1</md-option>
+                    <md-option value="2">2</md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+              <div layout="row">
+                <md-input-container flex="50">
+                  <label> Customer Name</label>
+                  <md-select name="customerName" ng-model="project.customerName" required>
+                    <md-option value="1">Shell</md-option>
+                    <md-option value="2">Mobi</md-option>
+                  </md-select>
+                </md-input-container>
+                <md-input-container flex="50">
+                  <label>Customer Site / Platform</label>
+                  <md-select name="customerSite" ng-model="project.customerSite" required>
+                    <md-option value="1">Gannett</md-option>
+                    <md-option value="2">Tripoli</md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+  
+              <!-- Yes or no questions-->
+              <md-input-container class="md-block">
+                <md-switch class="md-primary" name="special" ng-model="project.special" required>
+                  Special customer requirements?
+                </md-switch>
+                <div ng-messages="manualRequestForm.special.$error" multiple>
+                  <div ng-message="required">
+                    Required
+                  </div>
+                </div>
+              </md-input-container>
+              <md-input-container class="md-block">
+                <md-switch class="md-primary" name="supervisory" ng-model="project.supervisory" required>
+                  Supervisory requirements?
+                </md-switch>
+                <div ng-messages="manualRequestForm.supervisory.$error" multiple>
+                  <div ng-message="required">
+                    Required
+                  </div>
+                </div>
+              </md-input-container>
+              <md-input-container class="md-block">
+                <md-switch class="md-primary" name="contractor" ng-model="project.contractor" required>
+                  Contractor management requirements?
+                </md-switch>
+                <div ng-messages="manualRequestForm.contractor.$error" multiple>
+                  <div ng-message="required">
+                    Required
+                  </div>
+                </div>
+              </md-input-container>
+              <md-input-container class="md-block">
+                <md-switch class="md-primary" name="coverage" ng-model="project.coverage" required>
+                  Continuous shift coverage?
+                </md-switch>
+                <div ng-messages="manualRequestForm.coverage.$error" multiple>
+                  <div ng-message="required">
+                    Required
+                  </div>
+                </div>
+              </md-input-container>
+              <md-input-container class="md-block">
+                <md-switch class="md-primary" name="potential" ng-model="project.potential" required>
+                  Potential scope increase?
+                </md-switch>
+                <div ng-messages="manualRequestForm.potential.$error" multiple>
+                  <div ng-message="required">
+                    Required
+                  </div>
+                </div>
+              </md-input-container>
+              <md-input-container class="md-block">
+                <md-switch class="md-primary" name="visa" ng-model="project.visa" required>
+                  Special visa requirements?
+                </md-switch>
+                <div ng-messages="manualRequestForm.visa.$error" multiple>
+                  <div ng-message="required">
+                    Required
+                  </div>
+                </div>
+              </md-input-container>
+  
+              <!-- textarea -->
+              <md-input-container class="md-block">
+                <label> Specific Requirements… </label>
+                <input md-maxlength="30" required md-no-asterisk name="description" id="description" ng-model="project.description">
+                <div ng-messages="manualRequestForm.description.$error">
+                  <div ng-message="required">This is required.</div>
+                  <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+                </div>
+              </md-input-container>
+  
+              <md-button ng-switch="vm.isMicrophoneOpen" ng-click="vm.isMicrophoneOpen=!vm.isMicrophoneOpen" ng-class="md-icon-button logo">
+                <md-icon ng-switch-when="false" class="logo-image" ng-click="startArtyom()">
+                  <img class="logo-image" src="assets/images/baseline-mic_off-24px.svg">
+                </md-icon>
+                <md-icon ng-switch-when="true" class="logo-image" ng-click="stopArtyom()">
+                  <img class="logo-image" src="assets/images/baseline-mic-24px.png">
+                </md-icon>
+              </md-button>
+  
+              <!-- Submit button -->
+              <div>
+                <md-button type="submit">Submit</md-button>
+              </div>
+            </form>
+          </md-content>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12 text-center">
-        <input type="button" ng-click="startArtyom()" value="start voice command"></input>
-        <input type="button" ng-click="stopArtyom()" value="stop listening"></input>
-        <span id="output"></span>
-        <button id="previous" ng-click="hideText()">Previous</button>
-        <button id="next" ng-click="showText()">Next</button>
-        <span id="textToShow" style="display: none; color:red; border: 2px solid black;">Olá apareci porque disseste "Next"!</span>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
