@@ -15,6 +15,10 @@
       templateUrl: "assets/pages/orders/repair.html",
       controller: 'repairController',
       controllerAs: 'repairCtrl',
+    }).when("/qr-code", {
+      templateUrl: "assets/pages/qrcode.html",
+      controller: 'qrcodeController',
+      controllerAs: 'qrcodeCtrl',
     });
   });
 

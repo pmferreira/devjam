@@ -13,6 +13,8 @@
     };
     
     vm.coord = null;
+    vm.coordError = null;
+    vm.coordRadius = 50000;
     
     /***/
 
@@ -25,22 +27,19 @@
     function getLocation() {
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(function(position) {
-//          console.log(geolib.isPointInCircle(
-//            {latitude: 38.714, longitude: -8.954},
-//            {latitude: position.coords.latitude, longitude: position.coords.longitude},
-//            5000
-//        ));
+          console.log(geolib.isPointInCircle(
+            {latitude: 38.7, longitude: -8.9},
+            {latitude: position.coords.latitude, longitude: position.coords.longitude},
+            vm.coordRadius
+          ));
           
           vm.coord = position.coords;
           $scope.$apply();
-          console.log(vm.coord);
         });
       } else {
-        return false;
+        vm.coordError = "Your device doesn't support geolocation.";
       }
     }
-    
-    
   }
   
 })();

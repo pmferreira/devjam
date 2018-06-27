@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-4" data-ng-click="go('/start-repair')">
+      <div class="col-xs-12 col-sm-4 col-md-4" data-ng-click="go('/qr-code')">
         <div class="thumbnail thumbnail-link thumbnail-qr">
           <div class="thumbnail-img-container">
             <div class="thumbnail-img"></div>
@@ -26,6 +26,7 @@
           <div class="caption">
             <h2>Location</h2>
             <p>Equipments around me</p>
+            <p data-ng-if="!!repairCtrl.coordError">{{repairCtrl.coordError}}</p>
           </div>
         </div>
       </div>
