@@ -19,7 +19,11 @@
       templateUrl: "assets/pages/qrcode.html",
       controller: 'qrcodeController',
       controllerAs: 'qrcodeCtrl',
-    });
+    }).when("/manual", {
+      templateUrl: "assets/pages/manual.html",
+      controller: 'manualController',
+      controllerAs: 'manualCtrl',
+    });;
   });
 
 })();
