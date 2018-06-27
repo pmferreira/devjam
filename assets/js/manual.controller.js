@@ -9,6 +9,7 @@
     var vm = this;
 
     vm.manualRequest = false;
+    vm.artyom = null;
 
     /***/
 
@@ -21,7 +22,7 @@
     function startManualRequest() {
       vm.manualRequest = true;
 
-      var artyom = new Artyom();
+      artyom = new Artyom();
       artyom.addCommands([{
           description: "Artyom can talk too, lets say something if we say hello",
           indexes: ["hello", "hey"],
