@@ -26,7 +26,7 @@
       vm.artyom.addCommands([{
           indexes: ["repair"],
           action: function () {
-            angular.element('#repair').triggerHandler('click');
+            angular.element(document.querySelector('#repair')).triggerHandler('click');
           }
         }
       ]);
