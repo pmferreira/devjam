@@ -41,10 +41,15 @@
                 document.body.append(deviceInfo.deviceId + "- VALUE:" + deviceInfo.label);
               }             
             }
-            var camera =  typeof(vm.devices[1]) !== 'undefined' ? vm.devices[1] :vm.devices[0]
+            var camera = null;
+            if (vm.devices.length >1) {
+              camera = vm.devices[1];
+            } else {
+              camera = vm.devices[0];
+            }
             navigator.mediaDevices.getUserMedia({
               video: {              
-                deviceId: { exact: vm.devices[1].deviceId }
+                deviceId: { exact:camera.deviceId }
               }
             }).then(function (stream) {
                 video.src = window.URL.createObjectURL(stream);
