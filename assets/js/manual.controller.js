@@ -94,7 +94,15 @@
 
     $scope.selectCard = function (equipmentSelected) {
       vm.equipment = equipmentSelected;
+      $scope.$parent.app.selectedEquipment = vm.equipment;
     }
+
+    /***/    
+
+    $scope.$on('$destroy', function() {
+      vm.scanner.stop();
+    });  
+    
   }
 
 
