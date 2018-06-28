@@ -11,7 +11,8 @@
     vm.selectedEquipment = null;
     
     vm.fn = {
-      searchEquipment : searchEquipment
+      searchEquipment: searchEquipment,
+      searchEquipmentByGeoloc: searchEquipmentByGeoloc
     };
     
     /***/
@@ -29,6 +30,16 @@
       return $filter('filter')(equipments, function(eq) {
         return eq.id === id; 
       })[0];
+    }
+    
+    function searchEquipmentByGeoloc(lat, lng, radius) {
+      return $filter('filter')(equipments, function(eq) {        
+        return geolib.isPointInCircle(
+          {latitude: eq.location.lat, longitude: eq.location.lng},
+          {latitude: lat, longitude: lng},
+          radius
+        );
+      });
     }
   }
   

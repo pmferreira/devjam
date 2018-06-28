@@ -7,6 +7,8 @@
 
   function manualController($scope) {
     var vm = this;
+    
+    vm.equipment;
 
     vm.manualRequest = false;
     vm.artyom = null;
@@ -15,6 +17,7 @@
     /***/
 
     (function () {
+      vm.equipment = $scope.$parent.app.selectedEquipment;
       startManualRequest();
     })();
 

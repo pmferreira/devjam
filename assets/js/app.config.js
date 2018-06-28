@@ -13,19 +13,30 @@
       templateUrl: "assets/pages/home.html",
       controller: 'homeController',
       controllerAs: 'homeCtrl'
+        
     }).when("/start-repair", {
-      templateUrl: "assets/pages/orders/repair.html",
-      controller: 'repairController',
-      controllerAs: 'repairCtrl',
+      templateUrl: "assets/pages/repair.html",
+      
     }).when("/qr-code", {
       templateUrl: "assets/pages/qrcode.html",
       controller: 'qrcodeController',
       controllerAs: 'qrcodeCtrl',
+      
     }).when("/manual", {
       templateUrl: "assets/pages/manual.html",
       controller: 'manualController',
       controllerAs: 'manualCtrl',
-    });;
+      
+    }).when("/geoloc", {
+      templateUrl: "assets/pages/geoloc.html",
+      controller: 'geolocController',
+      controllerAs: 'geolocCtrl',
+    
+    }).when("/technician", {
+      templateUrl: "assets/pages/technician.html",
+      controller: 'technicianController',
+      controllerAs: 'technicianCtrl',
+    });
   });
 
 })();

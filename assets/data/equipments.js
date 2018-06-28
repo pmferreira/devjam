@@ -30,8 +30,8 @@ var equipments = [
     'type':'AB123',
     'under_repair':false,
     'location': {
-      'lat':'37.2512',
-      'lng':'-8.53213'
+      'lat':'38.516439',
+      'lng':'-9.086815'
     },
     'picture': 'assets/images/equipments/3.jpg'
   },
