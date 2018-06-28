@@ -74,7 +74,7 @@
     }
 
     function getBestMatch (point, time, maximumRangeMts) {
-        var maximumRangeMts = maximumRangeMts || 1000000;
+        var maximumRangeMts = maximumRangeMts || 10000000;
         var otherAvailableInRangeMatches = [];
 
         var currentDistance = 0;
