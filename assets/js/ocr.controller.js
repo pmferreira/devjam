@@ -43,7 +43,7 @@
             }
             var camera = null;
             if (vm.devices.length >1) {
-              camera = vm.devices[1];
+              camera = vm.devices[1]; 
             } else {
               camera = vm.devices[0];
             }
@@ -97,24 +97,15 @@
         //context.fillStyle = "rgba(200, 0, 0, 0.5)";
         //context.fillRect(0, 0, 500, 500);
         var content = GOCR(context);
-<<<<<<< HEAD
         
         vm.scannedCode = replaceAll(content, " ","");
         alert("-'"+vm.scannedCode+"'-");
-=======
-        //alert(content);
-        vm.scannedCode = replaceAll(content, " ","");
->>>>>>> ceca8dd712a9eb06bd09370f714132b1a71059df
         var result = $scope.$parent.app.fn.searchEquipment(vm.scannedCode);
 
         vm.equipmentError = null;
         
         if (result.length==0) {
-<<<<<<< HEAD
           vm.equipmentError = "Equipment with id " + vm.scannedCode + " not found";
-=======
-          vm.equipmentError = "Equipment with id " + content + " not found";
->>>>>>> ceca8dd712a9eb06bd09370f714132b1a71059df
         } else {
           vm.equipment = result[0];
           console.log(vm.equipment);
