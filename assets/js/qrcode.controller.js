@@ -8,7 +8,10 @@
   function qrcodeController($scope) {
     var vm = this;
     
-    vm.qrCodeOn = false;
+    vm.scannedCode = null;
+    vm.equipment = null;
+    vm.equipmentError = null;
+    vm.scanner = null;
     
     /***/
 
@@ -18,16 +21,24 @@
 
     /***/
     
-    function startQrCodeReader() {
-      vm.qrCodeOn = true;
-      
-      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-      scanner.addListener('scan', function (content) {
-        console.log(content);
+    function startQrCodeReader() {      
+      vm.scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+      vm.scanner.addListener('scan', function (content) {
+        vm.scannedCode = content;
+        vm.equipment = $scope.$parent.app.fn.searchEquipment(content);
+        
+        vm.equipmentError = null;
+        if(!vm.equipment) {
+          vm.equipmentError = "Equipment with id " + content + " not found";
+        } else {
+          $scope.$parent.app.selectedEquipment = vm.equipment;
+        }
+        
+        $scope.$apply();
       });
       Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {
-          scanner.start(cameras[0]);
+          vm.scanner.start(cameras[0]);
         } else {
           console.error('No cameras found.');
         }
@@ -36,7 +47,11 @@
       });
     }
     
+    /***/    
     
+    $scope.$on('$destroy', function() {
+      vm.scanner.stop();
+    });    
   }
   
 })();

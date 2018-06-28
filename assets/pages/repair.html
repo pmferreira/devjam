@@ -1,10 +1,17 @@
+<div class="container single">
+  <div class="row">
+    <div class="col-xs-12">
+      <ol class="breadcrumb">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="newton-home"></span></a>
+        </li>
+        <li class="active">Repair</li>
+      </ol>
+    </div>
+  </div>
+</div>
 <section class="ng-cloak" >
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <h2>AGT Service Request - Repair Order</h2>
-      </div>
-    </div>
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-4" data-ng-click="go('/qr-code')">
         <div class="thumbnail thumbnail-link thumbnail-qr">
@@ -17,16 +24,25 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4 col-md-4">
-        <div class="thumbnail thumbnail-link thumbnail-loc" data-ng-class="{'disabled':!repairCtrl.coord}">
+      <div class="col-xs-12 col-sm-4 col-md-4" data-ng-click="go('ocr')">
+        <div class="thumbnail thumbnail-link thumbnail-ocr">
           <div class="thumbnail-img-container">
-            <h2 data-ng-show="!!repairCtrl.coord"><span class="label label-info">42</span></h2>
+            <div class="thumbnail-img"></div>
+          </div>
+          <div class="caption">
+            <h2>OCR</h2>
+            <p>Read the equipment serial number</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4" data-ng-click="go('/geoloc')">
+        <div class="thumbnail thumbnail-link thumbnail-loc">
+          <div class="thumbnail-img-container">
             <div class="thumbnail-img"></div>
           </div>
           <div class="caption">
             <h2>Location</h2>
             <p>Equipments around me</p>
-            <p data-ng-if="!!repairCtrl.coordError">{{repairCtrl.coordError}}</p>
           </div>
         </div>
       </div>

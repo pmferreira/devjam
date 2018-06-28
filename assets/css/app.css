@@ -70,6 +70,10 @@ ol.breadcrumb {
   background-image: url('../images/icoManual.png');
 }
 
+.thumbnail-ocr .thumbnail-img {
+  background-image: url('../images/icoOcr.png');
+}
+
 .thumbnail-loc .thumbnail-img {
   background-image: url('../images/icoLoc.png');
 }
@@ -84,6 +88,32 @@ ol.breadcrumb {
 	box-shadow:0px 0px 6px #888;
 }
 
+/**** Start of Manual ****/
+.microphone-image {
+	height: 34px;
+	width: 34px;
+}
+
+.button-adjuster {
+	margin-top: 16px;
+}
 
 
+@media (max-width: 768px) {
+  .container.single {
+    width: calc(100% - 30px);
+    padding-left:15px;
+    padding-right:15px;
+  }
+}
 
+[class*="col-"] + [class*="col-"] > .btn {
+	margin-top:0;
+}
+
+.panel-group .panel-heading.collapsed h4::before, .panel-group .panel-heading.collapsed .h4d::before, .panel-group .panel-heading.collapsed .alert::before, .panel-group .panel-heading.collapsed .alert-dismissable::before, .panel-group .panel-heading.collapsed .alert-dismissible::before {
+  content: "\EA0C";
+}
+.panel-group .panel-heading h4::before, .panel-group .panel-heading .h4d::before, .panel-group .panel-heading .alert::before, .panel-group .panel-heading .alert-dismissable::before, .panel-group .panel-heading .alert-dismissible::before {
+  content: "\EA08";
+}
