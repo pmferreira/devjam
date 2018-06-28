@@ -57,7 +57,7 @@
           for (var i = 0; i < eqs.length; i++) {
             var content = L.DomUtil.create('div'), popup, eq = eqs[i];
             
-            content.innerHTML = '<img style="vertical-align:top;width:70px;display:inline-block;" src="' + eqs[i].picture + '" /><div style="display:inline-block;vertical-align:top;"><b>' + eqs[i].name + '</b><br/>' + eqs[i].description + '<br/><em>Click to select</em></div>'; 
+            content.innerHTML = '<img style="vertical-align:top;width:70px;display:inline-block;" src="' + eqs[i].picture + '" /><div style="display:inline-block;vertical-align:top;width:100%;"><b>' + eqs[i].name + '</b><br/><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + eqs[i].description + '</div><br/><em>Click to select</em></div>'; 
             popup = L.popup().setContent(content);
 
             L.DomEvent.addListener(content, 'click', function(event){

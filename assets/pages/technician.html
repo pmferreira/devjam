@@ -16,8 +16,12 @@
 <section class="ng-cloak">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-5">
+      <div class="col-xs-12">
+        <h4>{{technicianCtrl.techMatches.bestMatch.name}} is the best technician to assist on your demand.</h4>
+      </div>
+      <div class="col-xs-12 col-md-5" data-ng-click="technicianCtrl.selTechn = technicianCtrl.techMatches.bestMatch">
         <md-card md-theme="default" md-theme-watch>
+           <img src="assets/images/green-check.png" style="width: 48px;height: 48px;position: absolute;right: 0;top: 0;" data-ng-show="technicianCtrl.selTechn.id === technicianCtrl.techMatches.bestMatch.id">
            <md-card-title>
              <md-card-title-text>
                <span class="md-headline">{{technicianCtrl.techMatches.bestMatch.name}}</span>
@@ -30,8 +34,14 @@
              </md-card-title-media>
            </md-card-title>
          </md-card>
-         <p>{{technicianCtrl.techMatches.bestMatch.name}} is the best technician to assist on your demand.</p>
-         <p>However if you'd like other technician, you can select one based on availability or localization. Please see below.</p>
+      </div>
+      <div class="col-xs-12 col-md-offset-3 col-md-4">
+        <button class="btn btn-primary" data-ng-click="technicianCtrl.fn.submitOrder()" style="width:100%;font-size:16px;font-weight:bold;padding:10px;">
+          Submit order&nbsp;&nbsp;<span class="newton-check-mark"></span>
+        </button>
+      </div>
+      <div class="col-xs-12" style="padding-top:25px">
+        <p>However if you'd like other technician, you can select one based on availability or localization. Please see below.</p>
       </div>
     </div>
     <div class="row">
@@ -40,14 +50,15 @@
           <div class="panel panel-default">
             <div class="panel-heading collapsed" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accord" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
               <h4 class="panel-title">
-                Near and available technicians 
-              </h4>
+                Near and available technicians&nbsp;&nbsp;<span class="badge">{{technicianCtrl.techMatches.nearestsAndAvailabe.length - 1}}</span>
+              </h4> 
             </div>
             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="">
               <div class="panel-body">
                 <div class="row">
-                  <div class="col-xs-12 col-sm-6 col-md-4" data-ng-repeat="techn in technicianCtrl.techMatches.nearestsAndAvailabe" style="margin-bottom:10px">
+                  <div class="col-xs-12 col-sm-6 col-md-4" data-ng-repeat="techn in technicianCtrl.techMatches.nearestsAndAvailabe" data-ng-if="techn.id != technicianCtrl.techMatches.bestMatch.id" data-ng-click="technicianCtrl.selTechn = techn" style="margin-bottom:10px;height:150px;cursor:pointer">
                     <md-card md-theme="default" md-theme-watch>
+                      <img src="assets/images/green-check.png" style="width: 48px;height: 48px;position: absolute;right: 0;top: 0;" data-ng-show="technicianCtrl.selTechn.id === techn.id">
 	                    <md-card-title>
 	                      <md-card-title-text>
 	                        <span class="md-headline">{{techn.name}}</span>
@@ -69,13 +80,14 @@
           <div class="panel panel-default">
             <div class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accord" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
               <h4 class="panel-title">
-                Other available technicians
+                Other available technicians&nbsp;&nbsp;<span class="badge">{{technicianCtrl.techMatches.otherAvailableInRangeMatches.length > 50 ? '50+' : technicianCtrl.techMatches.otherAvailableInRangeMatches.length}}</span>
               </h4>
             </div>
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false">
               <div class="panel-body">
-                <div class="col-xs-12 col-sm-6 col-md-4" data-ng-repeat="techn in technicianCtrl.techMatches.otherAvailableInRangeMatches" style="margin-bottom:10px">
+                <div class="col-xs-12 col-sm-6 col-md-4" data-ng-repeat="techn in technicianCtrl.techMatches.otherAvailableInRangeMatches | limitTo:50" data-ng-if="techn.id != technicianCtrl.techMatches.bestMatch.id" data-ng-click="technicianCtrl.selTechn = techn" style="margin-bottom:10px;;height:150px">
 	                <md-card md-theme="default" md-theme-watch>
+	                  <img src="assets/images/green-check.png" style="width: 48px;height: 48px;position: absolute;right: 0;top: 0;" data-ng-show="technicianCtrl.selTechn.id === techn.id">
 						        <md-card-title>
 						          <md-card-title-text>
 						            <span class="md-headline">{{techn.name}}</span>
