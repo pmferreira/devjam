@@ -26,10 +26,14 @@
       }, function(vNew, vOld) {
         if(!!vNew) {
           console.log($scope.$parent.app.fn.searchEquipment(vNew));
+          vm.allEquipments = $scope.$parent.app.fn.searchEquipment(vNew);
+          $scope.$apply();
         } else {
           // clear results
         }
       })
+
+      vm.allEquipments = $scope.$parent.app.fn.getAllEquipment();
     })();
 
     /***/
@@ -86,6 +90,10 @@
 
     $scope.stopArtyom = function () {
       vm.artyom.fatality();
+    }
+
+    $scope.selectCard = function (equipmentSelected) {
+      vm.equipment = equipmentSelected;
     }
   }
 

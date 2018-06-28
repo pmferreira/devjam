@@ -13,7 +13,8 @@
     vm.fn = {
       searchEquipment: searchEquipment,
       searchEquipmentById: searchEquipmentById,
-      searchEquipmentByGeoloc: searchEquipmentByGeoloc
+      searchEquipmentByGeoloc: searchEquipmentByGeoloc,
+      getAllEquipment: getAllEquipment
     };
     
     /***/
@@ -51,6 +52,10 @@
           || eq.description.toLowerCase().indexOf(lText) !== -1
           || eq.id.toLowerCase().indexOf(lText) !== -1;
       });
+    }
+
+    function getAllEquipment() {      
+      return equipments;
     }
   }
   

@@ -41,8 +41,9 @@
                 document.body.append(deviceInfo.deviceId + "- VALUE:" + deviceInfo.label);
               }             
             }
+            var camera =  typeof(vm.devices[1]) !== 'undefined' ? vm.devices[1] :vm.devices[0]
             navigator.mediaDevices.getUserMedia({
-              video: {
+              video: {              
                 deviceId: { exact: vm.devices[1].deviceId }
               }
             }).then(function (stream) {
