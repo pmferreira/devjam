@@ -12,12 +12,19 @@
     vm.equipment = null;
     vm.equipmentError = null;
     vm.scanner = null;
+    vm.restart = restart;
 
     /***/
 
     (function () {
       //startQrCodeReader();
+startVideoSettings();
+    })();
 
+    /***/
+
+    function startVideoSettings() {
+      
       // use MediaDevices API
       // docs: https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
       if (navigator.mediaDevices) {
@@ -32,21 +39,16 @@
           .catch(function (error) {
             document.body.textContent = 'Could not access the camera. Error: ' + error.name;
           });
+      } else {
+         alert('error');
       }
-    })();
-
-    /***/
-
+    }
 
     var video = document.querySelector('video')
       , canvas;
 
-    /**
-     *  generates a still frame image from the stream in the <video>
-     *  appends the image to the <body>
-     */
     function takeSnapshot() {
-      var img = document.querySelector('img') || document.createElement('img');
+      var img = document.getElementById('myimg');//document.querySelector('img') || document.createElement('img');
       var context;
       var width = video.offsetWidth
         , height = video.offsetHeight;
@@ -57,9 +59,9 @@
 
       context = canvas.getContext('2d');
       context.drawImage(video, 0, 0, width, height);
+      video.style.display ="none";
 
-      img.src = canvas.toDataURL('image/png');
-      img.id = "img1";
+      img.src = canvas.toDataURL('image/png');      
       img.crossOrigin = "Anonymous";
       img.onload = function () {
         //draw background image
@@ -67,40 +69,30 @@
         //draw a box over the top
         //context.fillStyle = "rgba(200, 0, 0, 0.5)";
         //context.fillRect(0, 0, 500, 500);
-        var string = GOCR(context);
-        alert(string);
+        var content = GOCR(context);
+        alert(content);
+        vm.scannedCode = content.replace(" ","");
+        vm.equipment = $scope.$parent.app.fn.searchEquipment(content);
+        
+        vm.equipmentError = null;
+        console.log( vm.equipment);
+        if(!vm.equipment) {
+          vm.equipmentError = "Equipment with id " + content + " not found";
+        } else {
+          $scope.$parent.app.selectedEquipment = vm.equipment;
+        }
+        
+        $scope.$apply();
 
       };
-      document.body.appendChild(img);
+      //document.body.appendChild(img);
     }
 
-
-    function ocr() {
-      var ctx = document.getElementById('canvas');
-      if (ctx.getContext) {
-
-        ctx = ctx.getContext('2d');
-
-        //Loading of the home test image - img1
-        var img1 = new Image();
-
-        //drawing of the test image - img1
-        img1.crossOrigin = "Anonymous";
-        img1.onload = function () {
-          //draw background image
-          ctx.drawImage(img1, 0, 0);
-          //draw a box over the top
-          ctx.fillStyle = "rgba(200, 0, 0, 0.5)";
-          ctx.fillRect(0, 0, 500, 500);
-          var string = GOCR(ctx);
-          alert(string);
-
-        };
-
-        img1.src = 'img1.jpg';
-      }
+    function restart() {   
+      document.getElementById('myvideo').style.display = "";
+      document.getElementById('myimg').style.display = "none";
+      startVideoSettings();
     }
 
   }
-
 })();
