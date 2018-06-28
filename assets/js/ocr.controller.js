@@ -97,7 +97,7 @@
         //context.fillStyle = "rgba(200, 0, 0, 0.5)";
         //context.fillRect(0, 0, 500, 500);
         var content = GOCR(context);
-        
+         
         vm.scannedCode = replaceAll(content, " ","");
         alert("-'"+vm.scannedCode+"'-");
         var result = $scope.$parent.app.fn.searchEquipment(vm.scannedCode);
