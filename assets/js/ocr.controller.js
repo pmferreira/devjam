@@ -97,15 +97,27 @@
         //context.fillStyle = "rgba(200, 0, 0, 0.5)";
         //context.fillRect(0, 0, 500, 500);
         var content = GOCR(context);
-        alert(content);
+<<<<<<< HEAD
+        
         vm.scannedCode = replaceAll(content, " ","");
-        vm.equipment = $scope.$parent.app.fn.searchEquipment(content);
+        alert("-'"+vm.scannedCode+"'-");
+=======
+        //alert(content);
+        vm.scannedCode = replaceAll(content, " ","");
+>>>>>>> ceca8dd712a9eb06bd09370f714132b1a71059df
+        var result = $scope.$parent.app.fn.searchEquipment(vm.scannedCode);
 
         vm.equipmentError = null;
-        console.log(vm.equipment);
-        if (vm.equipment.length==0) {
+        
+        if (result.length==0) {
+<<<<<<< HEAD
+          vm.equipmentError = "Equipment with id " + vm.scannedCode + " not found";
+=======
           vm.equipmentError = "Equipment with id " + content + " not found";
+>>>>>>> ceca8dd712a9eb06bd09370f714132b1a71059df
         } else {
+          vm.equipment = result[0];
+          console.log(vm.equipment);
           $scope.$parent.app.selectedEquipment = vm.equipment;
         }
 
