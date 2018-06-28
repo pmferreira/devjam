@@ -31,28 +31,31 @@
       if (navigator.mediaDevices) {
 
         navigator.mediaDevices.enumerateDevices()
-          .then(function (deviceInfos) {
-            vm.devices = deviceInfos;
+          .then(function (deviceInfos) {           
+            
             for (var i = 0; i !== deviceInfos.length; ++i) {
               var deviceInfo = deviceInfos[i];
-              document.body.append(deviceInfo.deviceId + "- VALUE:" + deviceInfo.label);
-
+             
+              if (deviceInfo.kind === 'videoinput') {
+                vm.devices.push(deviceInfos[i]);
+                document.body.append(deviceInfo.deviceId + "- VALUE:" + deviceInfo.label);
+              }             
             }
+            navigator.mediaDevices.getUserMedia({
+              video: {
+                deviceId: { exact: vm.devices[1].deviceId }
+              }
+            }).then(function (stream) {
+                video.src = window.URL.createObjectURL(stream);
+                video.addEventListener('click', takeSnapshot);
+              })
+            console.log(vm.devices);
           }
-          ).then().catch();
+          ).then(
         // access the web cam
         //  navigator.mediaDevices.getUserMedia({ video: true })
-        navigator.mediaDevices.getUserMedia({
-          video: {
-            deviceId: { exact: vm.devices[1].deviceId}
-          }
-        })
-          // permission granted:
-          .then(function (stream) {
-
-            video.src = window.URL.createObjectURL(stream);
-            video.addEventListener('click', takeSnapshot);
-          })
+                
+                  )
           // permission denied:
           .catch(function (error) {
             document.body.textContent = 'Could not access the camera. Error: ' + error.name;
