@@ -98,7 +98,7 @@
         //context.fillRect(0, 0, 500, 500);
         var content = GOCR(context);
         alert(content);
-        vm.scannedCode = content.replace(" ", "");
+        vm.scannedCode = replaceAll(content, " ","");
         vm.equipment = $scope.$parent.app.fn.searchEquipment(content);
 
         vm.equipmentError = null;
@@ -120,6 +120,8 @@
       document.getElementById('myimg').style.display = "none";
       startVideoSettings();
     }
-
+    function replaceAll(str, find, replace) {
+      return str.replace(new RegExp(find, 'g'), replace);
+  }
   }
 })();
