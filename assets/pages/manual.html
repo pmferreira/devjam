@@ -46,7 +46,7 @@
       </div>
     </div>
     <div data-ng-show="!manualCtrl.equipment" class="col-xs-12 col-sm-12 col-md-12 list-wrapper" data-ng-repeat="equip in manualCtrl.allEquipments">
-      <md-card md-theme="default" md-theme-watch ng-click="selectCard(equip)">
+      <md-card md-theme="default" md-theme-watch ng-click="selectCard(equip)" style="overflow:hidden">
         <md-card-title>
           <md-card-title-media>
             <div class="md-media-sm card-media">
@@ -62,7 +62,7 @@
               ">{{equip.name}}</span>
             <span class="md-headline ng-binding" style="
                   font-size: 16px;
-                  margin-left: 10px;
+                  margin-left: 10px; white-space:nowrap;text-overflow:ellipsis;
               ">{{equip.description}}</span>
           </md-card-title-text>
         </md-card-title>
