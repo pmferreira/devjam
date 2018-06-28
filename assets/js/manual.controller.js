@@ -100,7 +100,7 @@
     /***/    
 
     $scope.$on('$destroy', function() {
-      vm.artyom.stop();
+      vm.artyom.fatality();
     });  
     
   }
