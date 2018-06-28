@@ -23,7 +23,7 @@
     })();
 
     /***/
-
+    vm.devices = [];
     function startVideoSettings() {
 
       // use MediaDevices API
@@ -32,15 +32,21 @@
 
         navigator.mediaDevices.enumerateDevices()
           .then(function (deviceInfos) {
-              for (var i = 0; i !== deviceInfos.length; ++i) {
-                  var deviceInfo = deviceInfos[i];
-                  document.body.append(deviceInfo.deviceId + "- VALUE:" + deviceInfo.label);
+            vm.devices = deviceInfos;
+            for (var i = 0; i !== deviceInfos.length; ++i) {
+              var deviceInfo = deviceInfos[i];
+              document.body.append(deviceInfo.deviceId + "- VALUE:" + deviceInfo.label);
 
-                }
-              }
+            }
+          }
           ).then().catch();
         // access the web cam
-        navigator.mediaDevices.getUserMedia({ video: true })
+        //  navigator.mediaDevices.getUserMedia({ video: true })
+        navigator.mediaDevices.getUserMedia({
+          video: {
+            deviceId: { exact: vm.devices[1].deviceId}
+          }
+        })
           // permission granted:
           .then(function (stream) {
 
