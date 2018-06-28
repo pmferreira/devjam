@@ -1,8 +1,8 @@
 var equipments = [
   {
     'id':'1234567890',
-    'name': 'Equipment name',
-    'description':'Equipment description',
+    'name': 'Equipment name 1',
+    'description':'Equipment description lorem ipsum 1',
     'type':'AB123',
     'under_repair':true,
     'location': {
@@ -13,8 +13,8 @@ var equipments = [
   },
   {
     'id':'3859027521',
-    'name': 'Equipment name',
-    'description':'Equipment description',
+    'name': 'Equipment name 2',
+    'description':'Equipment description lorem ipsum 2',
     'type':'AB123',
     'under_repair':false,
     'location': {
@@ -25,8 +25,8 @@ var equipments = [
   },
   {
     'id':'9623850294',
-    'name': 'Equipment name',
-    'description':'Equipment description',
+    'name': 'Equipment name 3',
+    'description':'Equipment description lorem ipsum 3',
     'type':'AB123',
     'under_repair':false,
     'location': {
@@ -37,8 +37,8 @@ var equipments = [
   },
   {
     'id':'2586344878',
-    'name': 'Equipment name',
-    'description':'Equipment description',
+    'name': 'Equipment name 4',
+    'description':'Equipment description lorem ipsum 4',
     'type':'AB123',
     'under_repair':false,
     'location': {
@@ -49,8 +49,8 @@ var equipments = [
   },
   {
     'id':'265634987',
-    'name': 'Equipment name',
-    'description':'Equipment description',
+    'name': 'Equipment name 5',
+    'description':'Equipment description lorem ipsum 5',
     'type':'AB123',
     'under_repair':false,
     'location': {
@@ -61,8 +61,8 @@ var equipments = [
   },
   {
     'id':'111257934',
-    'name': 'Equipment name',
-    'description':'Equipment description',
+    'name': 'Equipment name 6',
+    'description':'Equipment description lorem ipsum 6',
     'type':'AB123',
     'under_repair':false,
     'location': {
@@ -73,8 +73,8 @@ var equipments = [
   },
   {
     'id':'1114777852',
-    'name': 'Equipment name',
-    'description':'Equipment description',
+    'name': 'Equipment name 7',
+    'description':'Equipment description lorem ipsum 7',
     'type':'AB123',
     'under_repair':false,
     'location': {
