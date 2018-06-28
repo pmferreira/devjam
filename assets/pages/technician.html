@@ -50,16 +50,36 @@
             </div>
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false">
               <div class="panel-body">
-                <div class="col-xs-12 col-sm-4 col-md-3" data-ng-repeat="techn in technicianCtrl.techMatches.otherAvailableInRangeMatches" style="margin-bottom:10px">
-                    <div class="row">
-                      <div class="col-xs-5">
-                        <img src="https://randomuser.me/portraits/{{$odd ? 'women' : 'men'}}/{{$index}}.jpg" style="width:100%" />
-                      </div>
-                      <div class="col-xs-7">
-                        <h4 style="margin:0">{{techn.name}}</h4>
-                      </div>
-                    </div>
-                  </div>
+                <div class="col-xs-12 col-sm-6 col-md-4" data-ng-repeat="techn in technicianCtrl.techMatches.otherAvailableInRangeMatches" style="margin-bottom:10px">
+	                <md-card md-theme="default" md-theme-watch>
+						        <md-card-title>
+						          <md-card-title-text>
+						            <span class="md-headline">{{techn.name}}</span>
+						          </md-card-title-text>
+						          <md-card-title-media>
+						            <div class="md-media-sm card-media">
+						             <img src="https://randomuser.me/portraits/{{$odd ? 'women' : 'men'}}/{{$index}}.jpg" style="width:100%;border-radius:50%;" />
+						            </div>
+						          </md-card-title-media>
+						        </md-card-title>
+	<!-- 					        <md-card-actions layout="row" layout-align="end center"> -->
+	<!-- 					          <md-button>Action 1</md-button> -->
+	<!-- 					          <md-button>Action 2</md-button> -->
+	<!-- 					        </md-card-actions> -->
+						      </md-card>
+						    </div>
+              
+<!--                 <div class="col-xs-12 col-sm-4 col-md-3" data-ng-repeat="techn in technicianCtrl.techMatches.otherAvailableInRangeMatches" style="margin-bottom:10px"> -->
+<!--                     <div class="row"> -->
+<!--                       <div class="col-xs-5"> -->
+<!--                         <img src="https://randomuser.me/portraits/{{$odd ? 'women' : 'men'}}/{{$index}}.jpg" style="width:100%" /> -->
+<!--                       </div> -->
+<!--                       <div class="col-xs-7"> -->
+<!--                         <h4 style="margin:0">{{techn.name}}</h4> -->
+<!--                       </div> -->
+<!--                     </div> -->
+<!--                   </div> -->
+<!--               </div> -->
               </div>
             </div>
           </div>

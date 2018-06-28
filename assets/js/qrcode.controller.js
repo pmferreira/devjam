@@ -25,7 +25,7 @@
       vm.scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       vm.scanner.addListener('scan', function (content) {
         vm.scannedCode = content;
-        vm.equipment = $scope.$parent.app.fn.searchEquipment(content);
+        vm.equipment = $scope.$parent.app.fn.searchEquipmentById(content);
         
         vm.equipmentError = null;
         if(!vm.equipment) {

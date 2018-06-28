@@ -37,7 +37,7 @@
     function startArtyom() {
       vm.artyom.initialize({
         lang: "en-GB",
-        continuous: false,
+        continuous: true,
         soundex: true, // Use the soundex algorithm to increase accuracy
         debug: true,
         listen: true

@@ -8,7 +8,8 @@
   function manualController($scope) {
     var vm = this;
     
-    vm.equipment;
+    vm.equipment = null;
+    vm.eqSearch = null;
 
     vm.manualRequest = false;
     vm.artyom = null;
@@ -19,6 +20,16 @@
     (function () {
       vm.equipment = $scope.$parent.app.selectedEquipment;
       startManualRequest();
+      
+      $scope.$watch(function() {
+        return vm.eqSearch;
+      }, function(vNew, vOld) {
+        if(!!vNew) {
+          console.log($scope.$parent.app.fn.searchEquipment(vNew));
+        } else {
+          // clear results
+        }
+      })
     })();
 
     /***/

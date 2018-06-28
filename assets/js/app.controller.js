@@ -12,6 +12,7 @@
     
     vm.fn = {
       searchEquipment: searchEquipment,
+      searchEquipmentById: searchEquipmentById,
       searchEquipmentByGeoloc: searchEquipmentByGeoloc
     };
     
@@ -26,7 +27,7 @@
       $location.path(path);
     };
     
-    function searchEquipment(id) {
+    function searchEquipmentById(id) {
       return $filter('filter')(equipments, function(eq) {
         return eq.id === id; 
       })[0];
@@ -39,6 +40,16 @@
           {latitude: lat, longitude: lng},
           radius
         );
+      });
+    }
+    
+    function searchEquipment(text) {
+      var lText = text.toLowerCase();
+      
+      return $filter('filter')(equipments, function(eq) {        
+        return eq.name.toLowerCase().indexOf(lText) !== -1 
+          || eq.description.toLowerCase().indexOf(lText) !== -1
+          || eq.id.toLowerCase().indexOf(lText) !== -1;
       });
     }
   }

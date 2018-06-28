@@ -15,8 +15,6 @@
 </div>
 <section class="ng-cloak">
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
         <!-- <div>
           <input type="button" ng-click="startArtyom()" value="start voice command"></input>
           <input type="button" ng-click="stopArtyom()" value="stop listening"></input>
@@ -41,6 +39,15 @@
 		        </div>
 		      </div>
 		    </div>
+		    
+		    <div class="row" data-ng-show="!manualCtrl.equipment">
+          <div class="col-xs-12">
+            <div class="form-group">
+	            <label for="inputText" class="">Search for an equipment</label>
+	            <input id="inputText" class="form-control" data-ng-model="manualCtrl.eqSearch" data-ng-model-options="{ debounce: 250 }" onfocus="if (this.value == '') { $('label[for='+$(this).attr('id')+']')[0].className += ' selected' }" onblur="if (this.value == '') { $('label[for='+$(this).attr('id')+']')[0].className = $('label[for='+$(this).attr('id')+']')[0].className.replace(' selected', '') }" type="text">
+	          </div>
+          </div>
+        </div>
         
 
             <!-- dropdown questions-->
@@ -76,6 +83,9 @@
 <!--                 </md-select> -->
 <!--               </md-input-container> -->
 <!--             </div> -->
+
+        <div class="row" data-ng-show="!!manualCtrl.equipment">
+          <div class="col-xs-12">
 
             <!-- Yes or no questions-->
             <md-input-container class="md-block">
@@ -139,13 +149,7 @@
               </div> -->
             </md-input-container>
 
-            <div layout="row">
-              <!-- textarea -->
-              <div class="form-group">
-                <label for="inputText" class="">Name</label>
-                <textarea id="inputText" class="form-control" onfocus="if (this.value == '') { $('label[for='+$(this).attr('id')+']')[0].className += ' selected' }" onblur="if (this.value == '') { $('label[for='+$(this).attr('id')+']')[0].className = $('label[for='+$(this).attr('id')+']')[0].className.replace(' selected', '') }"></textarea>
-              </div>
-              
+            <div layout="row">              
               <md-input-container class="md-block" flex="90">
                 <label> Specific Requirements… </label>
                 <input md-no-asterisk name="description" id="description" ng-model="project.description" ng-value="descriptionRequirements" input-clear="black">
@@ -162,9 +166,9 @@
                 </md-button>
               </div>
             </div>
-      </div>
-    </div>
-    <div class="row">
+		      </div>
+		    </div>
+    <div class="row" data-ng-show="!!manualCtrl.equipment">
       <div class="col-xs-12 col-sm-offset-6 col-sm-6 col-md-offset-8 col-md-4 col-lg-offset-10 col-lg-2">
         <a class="btn btn-primary" style="width:100%;padding:10px 12px" href="#!/technician">
           Continue&nbsp;&nbsp;<span class="newton-arrow-right-small"></span>
