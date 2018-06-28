@@ -9,29 +9,23 @@
     var vm = this;
     
     vm.equipment = null;
-    vm.technicians = null;
+    vm.techMatches = null;
         
     /***/
 
     (function () {
-      vm.equipment = $scope.$parent.app.selectedEquipment;
-      vm.technicians = getBestMatch ([vm.equipment.location.lat,vm.equipment.location.lng].join(','), new Date ().toTimeString().split(" ")[0]);
+      if(!$scope.$parent.app.selectedEquipment) {
+        $scope.$parent.go("/");
+      }
       
-      console.log(technicians);
+      vm.equipment = $scope.$parent.app.selectedEquipment;
+      vm.techMatches = getBestMatch([vm.equipment.location.lat,vm.equipment.location.lng].join(','), new Date ().toTimeString().split(" ")[0]);
+      
+      console.log(vm.techMatches);
     })();
 
     /***/
-    
-    /** Extend Number object with method to convert numeric degrees to radians */
-    if (Number.prototype.toRadians === undefined) {
-        Number.prototype.toRadians = function() { return this * Math.PI / 180; };
-    }
-
-    /** Extend Number object with method to convert radians to numeric (signed) degrees */
-    if (Number.prototype.toDegrees === undefined) {
-        Number.prototype.toDegrees = function() { return this * 180 / Math.PI; };
-    }
-
+   
     function getDistanceBetweenGpsPoints (point1, point2) {
         var point1Data = point1.split (",");
         var lat1 = parseFloat (point1Data[0]);

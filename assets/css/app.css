@@ -70,6 +70,10 @@ ol.breadcrumb {
   background-image: url('../images/icoManual.png');
 }
 
+.thumbnail-ocr .thumbnail-img {
+  background-image: url('../images/icoOcr.png');
+}
+
 .thumbnail-loc .thumbnail-img {
   background-image: url('../images/icoLoc.png');
 }
@@ -105,4 +109,11 @@ ol.breadcrumb {
 
 [class*="col-"] + [class*="col-"] > .btn {
 	margin-top:0;
+}
+
+.panel-group .panel-heading.collapsed h4::before, .panel-group .panel-heading.collapsed .h4d::before, .panel-group .panel-heading.collapsed .alert::before, .panel-group .panel-heading.collapsed .alert-dismissable::before, .panel-group .panel-heading.collapsed .alert-dismissible::before {
+  content: "\EA0C";
+}
+.panel-group .panel-heading h4::before, .panel-group .panel-heading .h4d::before, .panel-group .panel-heading .alert::before, .panel-group .panel-heading .alert-dismissable::before, .panel-group .panel-heading .alert-dismissible::before {
+  content: "\EA08";
 }

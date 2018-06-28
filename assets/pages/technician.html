@@ -17,7 +17,53 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        123
+        <div class="panel-group" id="accord" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class="panel-heading collapsed" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accord" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              <h4 class="panel-title">
+                Near and available technicians 
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-4 col-md-3" data-ng-repeat="techn in technicianCtrl.techMatches.nearestsAndAvailabe" style="margin-bottom:10px">
+                    <div class="row">
+                      <div class="col-xs-5">
+                        <img src="https://randomuser.me/portraits/{{$odd ? 'women' : 'men'}}/{{$index}}.jpg" style="width:100%" />
+                      </div>
+                      <div class="col-xs-7">
+                        <h4 style="margin:0">{{techn.name}}</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accord" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <h4 class="panel-title">
+                Other available technicians
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false">
+              <div class="panel-body">
+                <div class="col-xs-12 col-sm-4 col-md-3" data-ng-repeat="techn in technicianCtrl.techMatches.otherAvailableInRangeMatches" style="margin-bottom:10px">
+                    <div class="row">
+                      <div class="col-xs-5">
+                        <img src="https://randomuser.me/portraits/{{$odd ? 'women' : 'men'}}/{{$index}}.jpg" style="width:100%" />
+                      </div>
+                      <div class="col-xs-7">
+                        <h4 style="margin:0">{{techn.name}}</h4>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
