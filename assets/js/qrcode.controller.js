@@ -32,6 +32,7 @@
           vm.equipmentError = "Equipment with id " + content + " not found";
         } else {
           $scope.$parent.app.selectedEquipment = vm.equipment;
+          console.log($scope.$parent.app.selectedEquipment);
         }
         
         $scope.$apply();

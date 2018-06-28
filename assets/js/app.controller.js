@@ -9,6 +9,7 @@
     var vm = this;
     
     vm.selectedEquipment = null;
+    vm.techn = null;
     
     vm.fn = {
       searchEquipment: searchEquipment,

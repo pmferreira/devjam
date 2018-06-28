@@ -42,6 +42,9 @@
       controller: 'ocrController',
       controllerAs: 'ocrCtrl',
       
+    }).when("/order-submitted", {
+      templateUrl: "assets/pages/order-submitted.html"
+      
     });
   });
   

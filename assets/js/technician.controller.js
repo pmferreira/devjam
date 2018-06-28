@@ -12,6 +12,13 @@
     vm.techMatches = null;
     
     vm.randTech = null;
+    vm.selTechn = null;
+    
+    vm.orderSubmitted = false;
+    
+    vm.fn = {
+      submitOrder: submitOrder
+    };
         
     /***/
 
@@ -23,13 +30,25 @@
       vm.equipment = $scope.$parent.app.selectedEquipment;
       vm.techMatches = getBestMatch([vm.equipment.location.lat,vm.equipment.location.lng].join(','), new Date ().toTimeString().split(" ")[0]);
       
+      console.log($scope.$parent.app.selectedEquipment);
+      console.log(vm.techMatches);
+      
+      vm.selTechn = vm.techMatches.bestMatch; 
+      
       vm.randTech = rand100();
     })();
 
     /***/
     
+    function submitOrder() {
+      $scope.$parent.app.techn = vm.selTechn;
+      $scope.$parent.app.techn.pic = "https://randomuser.me/portraits/" + (vm.randTech < 50 ? 'women/' : 'men/') + vm.randTech + ".jpg";
+      $scope.$parent.app.selectedEquipment.under_repair = true;
+      $scope.$parent.go("/order-submitted");
+    }
+    
     function rand100() {
-      return Math.floor(Math.random()*100+1);
+      return Math.floor(Math.random()*99+1);
     }
    
     function getDistanceBetweenGpsPoints (point1, point2) {
@@ -55,7 +74,7 @@
     }
 
     function getBestMatch (point, time, maximumRangeMts) {
-        var maximumRangeMts = maximumRangeMts || 50000;
+        var maximumRangeMts = maximumRangeMts || 1000000;
         var otherAvailableInRangeMatches = [];
 
         var currentDistance = 0;
