@@ -21,7 +21,7 @@
 </a></center>
 <section class="ng-cloak">
   <div class="container">
-    <div class="row">
+    <div class="row" data-ng-show="!ocrCtrl.equipment">
       <div class="col-xs-12 text-center">
           <div class="alert alert-info" data-ng-show="!!ocrCtrl.equipmentError">
               <a class="close" data-ng-click="ocrCtrl.equipmentError = null" style="cursor:pointer"></a>
@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="col-xs-4 col-md-3 col-lg-2">
-          <button class="btn btn-default" style="width:100%;padding:10px 12px" data-ng-click="ocrCtrl.equipment = null">
+          <button class="btn btn-default" style="width:100%;padding:10px 12px" data-ng-click="ocrCtrl.restart()">
             <span class="newton-arrow-left-small"></span>&nbsp;&nbsp;Back
           </button>
         </div>

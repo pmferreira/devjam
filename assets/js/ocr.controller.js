@@ -96,11 +96,11 @@
         //draw a box over the top
         //context.fillStyle = "rgba(200, 0, 0, 0.5)";
         //context.fillRect(0, 0, 500, 500);
-        var content = GOCR(context);
+        var content = "1234567890";//GOCR(context);
          
         vm.scannedCode = replaceAll(content, " ","");
         vm.scannedCode = vm.scannedCode.replace(/(\r\n\t|\n|\r\t)/gm,"");
-        alert("-'"+vm.scannedCode+"'-");
+        //alert("-'"+vm.scannedCode+"'-");
         var result = $scope.$parent.app.fn.searchEquipment(vm.scannedCode);
 
         vm.equipmentError = null;
@@ -123,6 +123,7 @@
       document.getElementById('myvideo').style.display = "";
       document.getElementById('myimg').style.display = "none";
       startVideoSettings();
+      vm.equipment = false;
     }
     function replaceAll(str, find, replace) {
       return str.replace(new RegExp(find, 'g'), replace);
