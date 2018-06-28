@@ -38,7 +38,7 @@
              
               if (deviceInfo.kind === 'videoinput') {
                 vm.devices.push(deviceInfos[i]);
-                document.body.append(deviceInfo.deviceId + "- VALUE:" + deviceInfo.label);
+                //document.body.append(deviceInfo.deviceId + "- VALUE:" + deviceInfo.label);
               }             
             }
             var camera = null;
@@ -103,7 +103,7 @@
 
         vm.equipmentError = null;
         console.log(vm.equipment);
-        if (!vm.equipment) {
+        if (vm.equipment.length==0) {
           vm.equipmentError = "Equipment with id " + content + " not found";
         } else {
           $scope.$parent.app.selectedEquipment = vm.equipment;
