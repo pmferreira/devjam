@@ -10,6 +10,8 @@
     
     vm.equipment = null;
     vm.techMatches = null;
+    
+    vm.randTech = null;
         
     /***/
 
@@ -21,10 +23,14 @@
       vm.equipment = $scope.$parent.app.selectedEquipment;
       vm.techMatches = getBestMatch([vm.equipment.location.lat,vm.equipment.location.lng].join(','), new Date ().toTimeString().split(" ")[0]);
       
-      console.log(vm.techMatches);
+      vm.randTech = rand100();
     })();
 
     /***/
+    
+    function rand100() {
+      return Math.floor(Math.random()*100+1);
+    }
    
     function getDistanceBetweenGpsPoints (point1, point2) {
         var point1Data = point1.split (",");
