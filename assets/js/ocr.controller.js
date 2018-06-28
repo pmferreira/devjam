@@ -51,7 +51,7 @@
               video: {              
                 deviceId: { exact:camera.deviceId }
               }
-            }).then(function (stream) {
+            }).then(function (stream) { 
                 video.src = window.URL.createObjectURL(stream);
                 video.addEventListener('click', takeSnapshot);
               })
