@@ -96,7 +96,7 @@
         //draw a box over the top
         //context.fillStyle = "rgba(200, 0, 0, 0.5)";
         //context.fillRect(0, 0, 500, 500);
-        var content = "1234567890";//GOCR(context);
+        var content = GOCR(context);
          
         vm.scannedCode = replaceAll(content, " ","");
         vm.scannedCode = vm.scannedCode.replace(/(\r\n\t|\n|\r\t)/gm,"");
