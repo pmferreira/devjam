@@ -33,9 +33,13 @@
         navigator.mediaDevices.enumerateDevices()
           .then(function (deviceInfos) {
             vm.devices = deviceInfos;
+            console.log(vm.devices);
             for (var i = 0; i !== deviceInfos.length; ++i) {
               var deviceInfo = deviceInfos[i];
+              if (deviceInfo.kind === 'videoinput') {
+              vm.devices.push(deviceInfos[i]);
               document.body.append(deviceInfo.deviceId + "- VALUE:" + deviceInfo.label);
+              }
 
             }
           }
