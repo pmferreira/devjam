@@ -1,0 +1,76 @@
+
+  <style>
+      video, img {
+        max-width:100%;
+      }
+    </style>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <ol class="breadcrumb">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="newton-home"></span></a>
+        </li>
+        <li class="dropdown">
+          <a href="#!/start-repair" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Repair</a>
+        </li>
+        <li class="active">Read OCR</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<section class="ng-cloak">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <video id="preview" style="max-width:100%"></video>
+      </div>
+    </div>
+      <div class="row">
+      <div class="col-xs-12 text-center">
+        <canvas id="canvas" ></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  (function() {
+   
+  })();
+
+</script>
+
+
+<script>
+
+function ocr() {
+ var ctx = document.getElementById('canvas');
+    if (ctx.getContext) {
+
+        ctx = ctx.getContext('2d');
+
+        //Loading of the home test image - img1
+        var img1 = new Image();
+
+        //drawing of the test image - img1
+		img1.crossOrigin = "Anonymous";
+        img1.onload = function () {
+            //draw background image
+            ctx.drawImage(img1, 0, 0);
+            //draw a box over the top
+            ctx.fillStyle = "rgba(200, 0, 0, 0.5)";
+            ctx.fillRect(0, 0, 500, 500);
+			var string = GOCR(ctx);
+			alert(string);
+
+        };
+
+        img1.src = 'img1.jpg';
+    }
+}
+
+</script>

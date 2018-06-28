@@ -36,6 +36,12 @@
       templateUrl: "assets/pages/technician.html",
       controller: 'technicianController',
       controllerAs: 'technicianCtrl',
+
+    }).when("/ocr", {
+      templateUrl: "assets/pages/ocr.html",
+      controller: 'ocrController',
+      controllerAs: 'ocrCtrl',
+      
     });
   });
   
