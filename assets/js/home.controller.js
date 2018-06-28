@@ -47,6 +47,12 @@
         console.error("Artyom couldn't be initialized: ", err);
       });
     }
+
+     /***/    
+
+    //  $scope.$on('$destroy', function() {
+    //   vm.artyom.fatality();
+    // });  
   }
 
 
