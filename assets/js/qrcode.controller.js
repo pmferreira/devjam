@@ -29,7 +29,7 @@
         
         vm.equipmentError = null;
         if(!vm.equipment) {
-          vm.equipmentError = "Equipment with id " + content + " not found";
+          vm.equipmentError = "Equipment with id <b>" + content + "</b> not found";
         } else {
           $scope.$parent.app.selectedEquipment = vm.equipment;
         }
