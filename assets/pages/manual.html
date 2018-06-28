@@ -3,7 +3,9 @@
     <div class="col-xs-12">
       <ol class="breadcrumb">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="newton-home"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="newton-home"></span>
+          </a>
         </li>
         <li class="dropdown">
           <a href="#!/start-repair" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Repair</a>
@@ -15,163 +17,118 @@
 </div>
 <section class="ng-cloak">
   <div class="container">
-        <!-- <div>
-          <input type="button" ng-click="startArtyom()" value="start voice command"></input>
-          <input type="button" ng-click="stopArtyom()" value="stop listening"></input>
-          <span id="output"></span>
-          <button id="previous" ng-click="hideText()">Previous</button>
-          <button id="next" ng-click="showText()">Next</button>
-          <span id="textToShow" style="display: none; color:red; border: 2px solid black;">Olá apareci porque disseste "Next"!</span>
-        </div> -->
-        
-        <div class="row" data-ng-show="!!manualCtrl.equipment">
-		      <div class="col-xs-12">
-		        <div class="equipment container" style="background:#f0f0f0;box-shadow:0px 0px 10px #aaa">
-		          <div class="row">
-		            <div class="col-xs-12 col-sm-3">
-		              <div style="width:calc(100% + 30px);margin-left:-15px;height:150px;background:url('{{manualCtrl.equipment.picture}}') 50% 50% no-repeat;background-size: cover;"></div>
-		            </div>
-		            <div class="col-xs-12 col-sm-9">
-		              <h2>{{manualCtrl.equipment.name}}</h2>
-		              <p>{{manualCtrl.equipment.description}}</p>
-		            </div>
-		          </div>
-		        </div>
-		      </div>
-		    </div>
-		    
-		    <div class="row" data-ng-show="!manualCtrl.equipment">
-          <div class="col-xs-12">
-            <div class="form-group">
-	            <label for="inputText" class="">Search for an equipment</label>
-	            <input id="inputText" class="form-control" data-ng-model="manualCtrl.eqSearch" data-ng-model-options="{ debounce: 250 }" onfocus="if (this.value == '') { $('label[for='+$(this).attr('id')+']')[0].className += ' selected' }" onblur="if (this.value == '') { $('label[for='+$(this).attr('id')+']')[0].className = $('label[for='+$(this).attr('id')+']')[0].className.replace(' selected', '') }" type="text">
-	          </div>
+    <div class="row" data-ng-show="!!manualCtrl.equipment">
+      <div class="col-xs-12">
+        <div class="equipment container" style="background:#f0f0f0;box-shadow:0px 0px 10px #aaa">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <div style="width:calc(100% + 30px);margin-left:-15px;height:150px;background:url('{{manualCtrl.equipment.picture}}') 50% 50% no-repeat;background-size: cover;"></div>
+            </div>
+            <div class="col-xs-12 col-sm-9">
+              <h2>{{manualCtrl.equipment.name}}</h2>
+              <p>{{manualCtrl.equipment.description}}</p>
+            </div>
           </div>
         </div>
-        
-
-            <!-- dropdown questions-->
-<!--             <div layout="row"> -->
-<!--               <md-input-container flex="50"> -->
-<!--                 <label> SCA Number</label> -->
-<!--                 <md-select name="scaNumber" ng-model="project.scaNumber" required> -->
-<!--                   <md-option value="1">CFS18001</md-option> -->
-<!--                   <md-option value="2">CFS18002</md-option> -->
-<!--                 </md-select> -->
-<!--               </md-input-container> -->
-<!--               <md-input-container flex="50"> -->
-<!--                 <label> Rev Number</label> -->
-<!--                 <md-select name="revNumber" ng-model="project.revNumber" required> -->
-<!--                   <md-option value="1">1</md-option> -->
-<!--                   <md-option value="2">2</md-option> -->
-<!--                 </md-select> -->
-<!--               </md-input-container> -->
-<!--             </div> -->
-<!--             <div layout="row"> -->
-<!--               <md-input-container flex="50"> -->
-<!--                 <label> Customer Name</label> -->
-<!--                 <md-select name="customerName" ng-model="project.customerName" required> -->
-<!--                   <md-option value="1">Shell</md-option> -->
-<!--                   <md-option value="2">Mobi</md-option> -->
-<!--                 </md-select> -->
-<!--               </md-input-container> -->
-<!--               <md-input-container flex="50"> -->
-<!--                 <label>Customer Site / Platform</label> -->
-<!--                 <md-select name="customerSite" ng-model="project.customerSite" required> -->
-<!--                   <md-option value="1">Gannett</md-option> -->
-<!--                   <md-option value="2">Tripoli</md-option> -->
-<!--                 </md-select> -->
-<!--               </md-input-container> -->
-<!--             </div> -->
-
-        <div class="row" data-ng-show="!!manualCtrl.equipment">
-          <div class="col-xs-12">
-
-            <!-- Yes or no questions-->
-            <md-input-container class="md-block">
-              <md-switch class="md-primary" name="special" ng-model="project.special" required>
-                Special customer requirements?
-              </md-switch>
-              <!-- <div ng-messages="manualRequestForm.special.$error" multiple>
-                <div ng-message="required">
-                  Required
-                </div>
-              </div> -->
-            </md-input-container>
-            <md-input-container class="md-block">
-              <md-switch class="md-primary" name="supervisory" ng-model="project.supervisory" required>
-                Supervisory requirements?
-              </md-switch>
-              <!-- <div ng-messages="manualRequestForm.supervisory.$error" multiple>
-                <div ng-message="required">
-                  Required
-                </div>
-              </div> -->
-            </md-input-container>
-            <md-input-container class="md-block">
-              <md-switch class="md-primary" name="contractor" ng-model="project.contractor" required>
-                Contractor management requirements?
-              </md-switch>
-              <!-- <div ng-messages="manualRequestForm.contractor.$error" multiple>
-                <div ng-message="required">
-                  Required
-                </div>
-              </div> -->
-            </md-input-container>
-            <md-input-container class="md-block">
-              <md-switch class="md-primary" name="coverage" ng-model="project.coverage" required>
-                Continuous shift coverage?
-              </md-switch>
-              <!-- <div ng-messages="manualRequestForm.coverage.$error" multiple>
-                <div ng-message="required">
-                  Required
-                </div>
-              </div> -->
-            </md-input-container>
-            <md-input-container class="md-block">
-              <md-switch class="md-primary" name="potential" ng-model="project.potential" required>
-                Potential scope increase?
-              </md-switch>
-              <!-- <div ng-messages="manualRequestForm.potential.$error" multiple>
-                <div ng-message="required">
-                  Required
-                </div>
-              </div> -->
-            </md-input-container>
-            <md-input-container class="md-block">
-              <md-switch class="md-primary" name="visa" ng-model="project.visa" required>
-                Special visa requirements?
-              </md-switch>
-              <!-- <div ng-messages="manualRequestForm.visa.$error" multiple>
-                <div ng-message="required">
-                  Required
-                </div>
-              </div> -->
-            </md-input-container>
-
-            <div layout="row">              
-              <md-input-container class="md-block" flex="90">
-                <label> Specific Requirements… </label>
-                <input md-no-asterisk name="description" id="description" ng-model="project.description" ng-value="descriptionRequirements" input-clear="black">
-              </md-input-container>
-              <!-- microphone button -->
-              <div class="button-adjuster">
-                <md-button flex="10" ng-switch="vm.isMicrophoneOpen" ng-click="vm.isMicrophoneOpen=!vm.isMicrophoneOpen" ng-class="md-icon-button">
-                  <md-icon ng-show="!vm.isMicrophoneOpen" class="microphone-image" ng-click="startArtyom()">
-                    <img class="microphone-image" src="assets/images/baseline-mic_off-24px.svg">
-                  </md-icon>
-                  <md-icon ng-show="vm.isMicrophoneOpen" class="microphone-image" ng-click="stopArtyom()">
-                    <img class="microphone-image" src="assets/images/baseline-mic-24px.svg">
-                  </md-icon>
-                </md-button>
-              </div>
+      </div>
+    </div>
+    <div class="row" data-ng-show="!manualCtrl.equipment">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <md-input-container class="md-icon-float md-block md-input-has-value">
+            <!-- Use floating label instead of placeholder -->
+            <label for="input_109">Search for an equipment</label>
+            <input id="inputText" data-ng-model="manualCtrl.eqSearch" data-ng-model-options="{ debounce: 250 }" onfocus="if (this.value == '') { $('label[for='+$(this).attr('id')+']')[0].className += ' selected' }"
+              onblur="if (this.value == '') { $('label[for='+$(this).attr('id')+']')[0].className = $('label[for='+$(this).attr('id')+']')[0].className.replace(' selected', '') }"
+              type="text">
+          </md-input-container>
+        </div>
+      </div>
+    </div>
+    <div data-ng-show="!manualCtrl.equipment" class="col-xs-12 col-sm-12 col-md-12 list-wrapper" data-ng-repeat="equip in manualCtrl.allEquipments">
+      <md-card md-theme="default" md-theme-watch ng-click="selectCard(equip)">
+        <md-card-title>
+          <md-card-title-media>
+            <div class="md-media-sm card-media">
+              <div style="margin-left: -16px;height: 60px;margin-top: -16px;background: url(assets/images/equipments/2.jpg) 50% 50% no-repeat;background-size: cover;"></div>
             </div>
-		      </div>
-		    </div>
+          </md-card-title-media>
+          <md-card-title-text>
+            <span class="md-headline ng-binding" style="
+                  margin-top:  -25px;
+                  font-weight: bold;
+                  font-size: 20px;
+                  margin-left: 10px;
+              ">{{equip.name}}</span>
+            <span class="md-headline ng-binding" style="
+                  font-size: 16px;
+                  margin-left: 10px;
+              ">{{equip.description}}</span>
+          </md-card-title-text>
+        </md-card-title>
+      </md-card>
+    </div>
+
+    <div class="row" data-ng-show="!!manualCtrl.equipment">
+      <div class="col-xs-12">
+
+        <!-- Yes or no questions-->
+        <md-input-container class="md-block">
+          <md-switch class="md-primary" name="special" ng-model="project.special" required>
+            Special customer requirements?
+          </md-switch>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <md-switch class="md-primary" name="supervisory" ng-model="project.supervisory" required>
+            Supervisory requirements?
+          </md-switch>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <md-switch class="md-primary" name="contractor" ng-model="project.contractor" required>
+            Contractor management requirements?
+          </md-switch>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <md-switch class="md-primary" name="coverage" ng-model="project.coverage" required>
+            Continuous shift coverage?
+          </md-switch>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <md-switch class="md-primary" name="potential" ng-model="project.potential" required>
+            Potential scope increase?
+          </md-switch>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <md-switch class="md-primary" name="visa" ng-model="project.visa" required>
+            Special visa requirements?
+          </md-switch>
+        </md-input-container>
+
+        <div layout="row">
+          <md-input-container class="md-block" flex="90">
+            <label> Specific Requirements… </label>
+            <input md-no-asterisk name="description" id="description" ng-model="project.description" ng-value="descriptionRequirements"
+              input-clear="black">
+          </md-input-container>
+          <!-- microphone button -->
+          <div class="button-adjuster">
+            <md-button flex="10" ng-switch="vm.isMicrophoneOpen" ng-click="vm.isMicrophoneOpen=!vm.isMicrophoneOpen" ng-class="md-icon-button">
+              <md-icon ng-show="!vm.isMicrophoneOpen" class="microphone-image" ng-click="startArtyom()">
+                <img class="microphone-image" src="assets/images/baseline-mic_off-24px.svg">
+              </md-icon>
+              <md-icon ng-show="vm.isMicrophoneOpen" class="microphone-image" ng-click="stopArtyom()">
+                <img class="microphone-image" src="assets/images/baseline-mic-24px.svg">
+              </md-icon>
+            </md-button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row" data-ng-show="!!manualCtrl.equipment">
       <div class="col-xs-12 col-sm-offset-6 col-sm-6 col-md-offset-8 col-md-4 col-lg-offset-10 col-lg-2">
         <a class="btn btn-primary" style="width:100%;padding:10px 12px" href="#!/technician">
-          Continue&nbsp;&nbsp;<span class="newton-arrow-right-small"></span>
+          Continue&nbsp;&nbsp;
+          <span class="newton-arrow-right-small"></span>
         </a>
       </div>
     </div>
