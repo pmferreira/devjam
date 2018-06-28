@@ -98,9 +98,14 @@
         //context.fillRect(0, 0, 500, 500);
         var content = GOCR(context);
 <<<<<<< HEAD
+<<<<<<< HEAD
         
         vm.scannedCode = replaceAll(content, " ","");
         alert("-'"+vm.scannedCode+"'-");
+=======
+        //alert(content);
+        vm.scannedCode = replaceAll(content, " ","");
+>>>>>>> ceca8dd712a9eb06bd09370f714132b1a71059df
 =======
         //alert(content);
         vm.scannedCode = replaceAll(content, " ","");
@@ -111,8 +116,11 @@
         
         if (result.length==0) {
 <<<<<<< HEAD
+<<<<<<< HEAD
           vm.equipmentError = "Equipment with id " + vm.scannedCode + " not found";
 =======
+=======
+>>>>>>> ceca8dd712a9eb06bd09370f714132b1a71059df
           vm.equipmentError = "Equipment with id " + content + " not found";
 >>>>>>> ceca8dd712a9eb06bd09370f714132b1a71059df
         } else {
