@@ -98,6 +98,21 @@ ol.breadcrumb {
 	margin-top: 16px;
 }
 
+.list-wrapper md-card {
+	margin-bottom: 10px;
+	height: 60px;
+	background: #f0f0f0;
+}
+
+md-input-container label, md-input-container.md-input-focused label {
+  color: rgb(63,81,182);
+}
+
+md-input-container input, md-input-container .md-input  {
+	border-color:  rgb(63,81,182);
+	border-width: 0 0 2px!important
+}
+
 
 @media (max-width: 768px) {
   .container.single {
