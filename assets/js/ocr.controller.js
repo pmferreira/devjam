@@ -19,11 +19,7 @@
     (function () {
       //startQrCodeReader();
       startVideoSettings();
-      for (var i = 0; i !== deviceInfos.length; ++i) {
-        var deviceInfo = deviceInfos[i];
-        document.body.appendChild(deviceInfo.deviceId+"-"+deviceInfo.label );
-    
-      }
+
     })();
 
     /***/
@@ -33,10 +29,21 @@
       // use MediaDevices API
       // docs: https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
       if (navigator.mediaDevices) {
+
+        navigator.mediaDevices.enumerateDevices()
+          .then(function (deviceInfos) {
+              for (var i = 0; i !== deviceInfos.length; ++i) {
+                  var deviceInfo = deviceInfos[i];
+                  document.body.append(deviceInfo.deviceId + "- VALUE:" + deviceInfo.label);
+
+                }
+              }
+          ).then().catch();
         // access the web cam
         navigator.mediaDevices.getUserMedia({ video: true })
           // permission granted:
           .then(function (stream) {
+
             video.src = window.URL.createObjectURL(stream);
             video.addEventListener('click', takeSnapshot);
           })
