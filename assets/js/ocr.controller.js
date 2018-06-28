@@ -123,7 +123,9 @@
       document.getElementById('myvideo').style.display = "";
       document.getElementById('myimg').style.display = "none";
       startVideoSettings();
-      vm.equipment = false;
+      vm.scannedCode = null;
+    vm.equipment = null;
+    vm.equipmentError = null;
     }
     function replaceAll(str, find, replace) {
       return str.replace(new RegExp(find, 'g'), replace);
