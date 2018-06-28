@@ -50,9 +50,9 @@
 
      /***/    
 
-    //  $scope.$on('$destroy', function() {
-    //   vm.artyom.fatality();
-    // });  
+      $scope.$on('$destroy', function() {
+       vm.artyom.fatality();
+     });  
     
     $scope.$on('$destroy', function() {
       $scope.$parent.app.techn = null;
