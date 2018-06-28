@@ -76,7 +76,7 @@
 
     $scope.startArtyom = function () {
       vm.artyom.initialize({
-        lang: "en-GB",
+        lang: "en-US",
         continuous: true, // Listen forever
         soundex: true, // Use the soundex algorithm to increase accuracy
         debug: true,
