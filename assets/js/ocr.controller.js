@@ -18,13 +18,18 @@
 
     (function () {
       //startQrCodeReader();
-startVideoSettings();
+      startVideoSettings();
+      for (var i = 0; i !== deviceInfos.length; ++i) {
+        var deviceInfo = deviceInfos[i];
+        document.body.appendChild(deviceInfo.deviceId+"-"+deviceInfo.label );
+    
+      }
     })();
 
     /***/
 
     function startVideoSettings() {
-      
+
       // use MediaDevices API
       // docs: https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
       if (navigator.mediaDevices) {
@@ -40,7 +45,7 @@ startVideoSettings();
             document.body.textContent = 'Could not access the camera. Error: ' + error.name;
           });
       } else {
-         alert('error');
+        alert('error');
       }
     }
 
@@ -59,9 +64,9 @@ startVideoSettings();
 
       context = canvas.getContext('2d');
       context.drawImage(video, 0, 0, width, height);
-      video.style.display ="none";
+      video.style.display = "none";
 
-      img.src = canvas.toDataURL('image/png');      
+      img.src = canvas.toDataURL('image/png');
       img.crossOrigin = "Anonymous";
       img.onload = function () {
         //draw background image
@@ -71,24 +76,24 @@ startVideoSettings();
         //context.fillRect(0, 0, 500, 500);
         var content = GOCR(context);
         alert(content);
-        vm.scannedCode = content.replace(" ","");
+        vm.scannedCode = content.replace(" ", "");
         vm.equipment = $scope.$parent.app.fn.searchEquipment(content);
-        
+
         vm.equipmentError = null;
-        console.log( vm.equipment);
-        if(!vm.equipment) {
+        console.log(vm.equipment);
+        if (!vm.equipment) {
           vm.equipmentError = "Equipment with id " + content + " not found";
         } else {
           $scope.$parent.app.selectedEquipment = vm.equipment;
         }
-        
+
         $scope.$apply();
 
       };
       //document.body.appendChild(img);
     }
 
-    function restart() {   
+    function restart() {
       document.getElementById('myvideo').style.display = "";
       document.getElementById('myimg').style.display = "none";
       startVideoSettings();
